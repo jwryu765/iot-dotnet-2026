@@ -11,28 +11,28 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 - 유니티 게임 엔진 기본 스크립트 채택
 - 스마트팩토리, KIOSK 개발 등에 많이 활용
 
-### C#은 닷넷 프레임워크 위에서 동작함
-- 자바는 버추얼머신(VM)위에서 동작하면
+### C#은 닷넷 프레임워크 위에서 동작
+- 자바는 버주얼머신(VM)위에서 동작하면,
 - C#은 닷넷 프레임워크(VM)위에서 동작함
 - .NET(dotNET) 프레임워크의 구조를 따르면 무슨 언어든지 동작가능
-    - C#, VB, J#, F#, C++.NET, Python...
+    - C#, VB, J#, F#, C++.NET, Python... 
 
-![alt text](<image.png>)
+![alt text](image.png)
 - 출처 : https://wikidocs.net/227163
 
 - 버전명칭
-    - .NET Framework > .NET Core > .NET 5.0 이상
+    - .NET Framwork > .NET Core > .NET 5.0 이상
 
 ### 절차적 프로그래밍 vs 객체지향 프로그래밍
 
-- 절차적 : 순서대로 수행하도록 프로그래밍을 구현하는것
-- 객체지향 : 모든 것을 객체로 선언해서 매서드로 동작, 각 객체별로 메세지를 전달하는 형태로 프로그래밍을 구현하는 것
+- 절차적 : 순서대로 수행하도록 프로그래밍을 구현하는 것
+- 객체지향 : 모든 것을 객체로 선언해서 메서드로 동작, 각 객체별로 메시지를 전달하는 형태로 프로그래밍을 구현하는 것
 
 - 포괄적 의미 : 절차적 프로그래밍을 하면서 객체를 최대한 사용하는 방식
 
 ### C# 개발분야
 - 윈도우 프로그램 : 윈 앱(Application -> App)
-    - 아직 완벽하게 멀티플랫폼이 안됨
+    - 아직 완벽하게 멀팀플랫폼이 안됨
 - 웹 앱 : ASP(Active Server Page).NET <--> Spring(Java Server Page)
     - MacOS, Linux, Windows 모두 가능
 - 유니티 : 게임, 디지털트윈(산업계)
@@ -40,7 +40,7 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 - IoT 연동 : 아두이노, 라즈베리파이 가능
 
 
-### C# 언어 난이도
+### C# 언어 난이도 
 
 - C > C++ > Java > C# > Python
 
@@ -58,16 +58,16 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 4. 새 프로젝트 만들기
 5. 언어 C#으로 선택
 6. 콘솔 앱 선택
-7. 새 프로젝트 구성: 프로젝트 명, 저장위치, 솔루션 이름 지정
+7. 새 프로젝트 구성 : 프로젝트 명, 저장 위치, 솔루션 이름 지정
 8. 추가 정보 : 프레임워크 선택, `최상위 문 사용 안 함(Do not use top-level statement)` 체크안함
 
     ![alt text](image-3.png)
-
+    
 9. 만들기 버튼 클릭
 
     ```cs
     // 최신방식 - 처음 학습시에 도움이 안되는 방식
-    Console.WriteLine("Hello, World");
+    Console.WriteLine("Hello, World!");
     ```
 
 10. 추가 정보에서 `최상위 문 사용 안 함`을 체크할 것
@@ -77,7 +77,9 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 - 기본문법
 
     ```cs
-        // C#은 네임스페이스 내 동작
+    using System;
+
+    // C#은 네임스페이스 내 동작
     // Python에 import로 불러올수 있는 패키지와 동일
     namespace ConsoleApp2
     {
@@ -98,37 +100,36 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
     }
     ```
 
-- 주석 : 한줄 주석(//), 여러줄 주석(/* */), XML주석(///)
+- 주석 : 한 줄 주석(//), 여러줄 주석(/* */), XML주석(///)
 
 - 변수와 타입
     - 초기화 : `접근제한자 타입 변수명`
-    - 기본타입(구조체) : sbyte, byte, short, ushort, int, uint, long, ulong, float, double, decimal, char, bool
-        - 동일한 구조체 타입 : Boolean, Int16~128, single, Double
+    - 기본타입(구조체) : bool, sbyte, ..., ushort, int, uint, long, float, double, decimal, char, bool
+    - 기본타입과 매핑되는 구조체 타입 : Boolean, Int16~128, Single, Double    
     - 참조타입(클래스) : class, interface, array, string
-        - 대문자로 시작하는 타입명
-    - 변수 선언은 C와 동일
+    - 변수 선언은 C/C++와 동일
     - 형변환
-        - 묵시적 형변환 : 작은 타입 변수를 큰 타입의 변수로 옮길때
+        - 묵시적 형변환 : 작은 타입 변수를 큰 타입의 변수로 옮길때 
         - 명시적 형변환 : `(타입)` 지정
     - var : 가변타입. javascript var와 동일. C++ auto와 동일
-    - 변수명 지정 시 class AppleName로 (java appleName)
+    - 변수명 지정 시 class AppleName와 같이 사용(java appleName)
 
     ![alt text](image-4.png)
-    
+
 - 연산자
     - C/C++ 과 동일
 
 - 제어문
-    - if, switch, for, while 까지  C/C++ 동일
-    - foreach는 컬렉션 이후
+    - if, switch, for, while 까지 C/C++ 동일
+    - foreach는 컬렉션 이후 
 
-- 메서드
+- 메서드 
     - C/C++, Python 함수와 동일
 
 - 객체지향
-    - C++, Python 객체지향 클래스 내용과 동일
+    - C++, Python 객체지향 클래스 개념/내용과 동일
     - 클래스 : 명사와 동사의 집합
-        - 명사 : 멤버변수, 속성(Property)
+        - 명사 : 멤버변수, 속성(Property), Get or Set            
         - 동사 : 멤버함수, 메서드(Method)
 
     ```cs
@@ -155,10 +156,10 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
     - this : 자기 클래스를 지칭할 때 
 
 - 클래스 속성에서
-    - get : 속성의 값을 가져올 수만 있음
-    - set : 속성의 값을 변경할 수만 있음
+    - get : 속성값을 가져올 수만 있음
+    - set : 속성의 값을 변경할 수만 가능    
     - get; set; : 둘 다 가능
-
+    
 - 컬렉션
     - 배열, 리스트 등 여러요소를 묶어서 사용하는 구조
     - ArrayList, List, Hashtable, Dictionary, Stach, Queue, Hashset, ...
@@ -167,10 +168,10 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
     ![alt text](image-5.png)
 
     - foreach : python `for (i in range(n))` 와 동일
+    - 보기 > 개체 브라우저
 
 - 예외처리
-    - try ~catch ~ finally 형식 사용 가능
-
+    - try ~ catch ~ finally 형식 사용 가능
 
 ### MSDN(MicroSoft Developer Network)
 - https://learn.microsoft.com/ko-kr/dotnet/csharp/
@@ -178,17 +179,17 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 ### C# 프로그래밍
 
 - C#으로 프로그램을 구현한다는 뜻
-    - 윈도우 에플리케이션(WinApp), 웹앱(WebApp), Unity, 모바일(MAUI), 키오스크(WRF) 개발함
+    - 윈도우 애플리케이션(WinApp), 웹앱(WebApp), Unity, 모바일(MAUI), 키오스크(WPF) 개발함
     - GUI(Graphic User Interface) 활용
 
 ### 윈앱
 
-- Winforms, Window Application, GUI... -> `WinApp`으로 통일
+- WinForms, Window Application, GUI... -> `WinApp`으로 통일
     - Windows Forms : 가장 오래된 윈앱개발 방식
     - WPF : 좀 더 최신의 윈앱개발 방식
 
 - 윈앱 개발에는 각 두개로 구분되어 있음
-    - .NET Framework : .NET Framework 4.8 이전 구형 개발 방식
+    - .NET Framework : .NET Framework 4.8 이전 구형 개발방식
     - 기본 : .NET 5.0 이상의 최신 개발방식
 
 ### 윈폼즈 앱 구현
@@ -203,6 +204,6 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
     ![alt text](image-6.png)
 
 7. 저장할때는 항상 Ctrl+Shift+S(모두 저장) 저장할 것
-8. 도구산자의 컨트롤을 디자인 화면으로 드래그해서 구성 
-9. 도구상자의 모든 컨트롤의 속성 변경으로 디자인
+8. 도구상자의 컨트롤을 디자인 화면으로 드래그해서 구성 
+9. 컨트롤의 속성 변경으로 디자인 적용
 10. 컨트롤의 이벤트 추가로 기능 구현
