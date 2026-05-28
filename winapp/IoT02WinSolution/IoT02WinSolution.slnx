@@ -1,4 +1,6 @@
 <Solution>
   <Project Path="DotNet03GuessNum/DotNet03GuessNum.csproj" />
   <Project Path="DotNet04ControlsApp/DotNet04ControlsApp.csproj" />
+  <Project Path="DotNet05AsyncApp/DotNet05AsyncApp.csproj" Id="06bca34b-49ae-4d6a-baa4-940fa0e7896d" />
+  <Project Path="DotNet06DbBooksApp/DotNet06DbBooksApp.csproj" Id="fd41dbf8-f8d2-4dc7-96c3-46ef2d7aa827" />
 </Solution>
