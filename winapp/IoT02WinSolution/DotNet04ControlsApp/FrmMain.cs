@@ -1,4 +1,4 @@
-using System.IO;
+using System.Drawing;
 using System.ComponentModel;
 using System.Text;
 
@@ -287,6 +287,7 @@ namespace DotNet04ControlsApp
             TxtLog.AppendText($"진행률 : {PrgProcess.Value}\r\n");
         }
 
+
         // 3. 프로세스가 끝난 뒤 처리
         private void WrkProcess_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
@@ -331,6 +332,7 @@ namespace DotNet04ControlsApp
             dlg.Filter = "RichText file(*.rtf)|*.rtf";
             if (dlg.ShowDialog(this) == DialogResult.OK)
             {
+                
                 RtbEditor.SaveFile(dlg.FileName, RichTextBoxStreamType.RichNoOleObjs);
             }
         }

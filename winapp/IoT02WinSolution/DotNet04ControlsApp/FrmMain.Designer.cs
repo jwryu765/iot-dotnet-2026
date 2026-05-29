@@ -63,7 +63,6 @@
             BtnFileLoad = new Button();
             RtbEditor = new RichTextBox();
             DlgOpenFile = new OpenFileDialog();
-            saveFileDialog1 = new SaveFileDialog();
             WrkProcess = new System.ComponentModel.BackgroundWorker();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -77,6 +76,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             groupBox1.Controls.Add(BtnDialog);
             groupBox1.Controls.Add(BtnMsgbox);
             groupBox1.Controls.Add(BtnModaless);
@@ -137,6 +137,7 @@
             // 
             TxtResult.Location = new Point(16, 52);
             TxtResult.Name = "TxtResult";
+            TxtResult.ReadOnly = true;
             TxtResult.Size = new Size(354, 23);
             TxtResult.TabIndex = 5;
             // 
@@ -182,6 +183,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             groupBox2.Controls.Add(PrgStatus);
             groupBox2.Controls.Add(TrkStatus);
             groupBox2.Location = new Point(12, 131);
@@ -211,6 +213,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             groupBox3.Controls.Add(BtnAddRoot);
             groupBox3.Controls.Add(BtnAddNode);
             groupBox3.Controls.Add(LvwDummy);
@@ -244,9 +247,11 @@
             // 
             // LvwDummy
             // 
+            LvwDummy.LargeImageList = ImgDummy;
             LvwDummy.Location = new Point(193, 22);
             LvwDummy.Name = "LvwDummy";
             LvwDummy.Size = new Size(177, 162);
+            LvwDummy.SmallImageList = ImgDummy;
             LvwDummy.TabIndex = 13;
             LvwDummy.UseCompatibleStateImageBehavior = false;
             // 
@@ -270,12 +275,13 @@
             // 
             // groupBox4
             // 
+            groupBox4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox4.Controls.Add(BtnLoadImg);
             groupBox4.Controls.Add(PicImage);
             groupBox4.Location = new Point(404, 12);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(386, 307);
-            groupBox4.TabIndex = 2;
+            groupBox4.TabIndex = 3;
             groupBox4.TabStop = false;
             groupBox4.Text = "픽쳐박스";
             // 
@@ -300,6 +306,7 @@
             // 
             // groupBox5
             // 
+            groupBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox5.Controls.Add(BtnStop);
             groupBox5.Controls.Add(BtnThread);
             groupBox5.Controls.Add(BtnNoThread);
@@ -426,6 +433,7 @@
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "FrmMain";
             Text = "컨트롤 예제";
             FormClosing += FrmMain_FormClosing;
@@ -443,6 +451,12 @@
             groupBox6.ResumeLayout(false);
             ResumeLayout(false);
         }
+
+
+
+
+
+
 
         #endregion
 
@@ -468,7 +482,6 @@
         private TreeView TvwDummy;
         private Button BtnAddRoot;
         private Button BtnAddNode;
-        private SaveFileDialog saveFileDialog1;
         private ImageList ImgDummy;
         private Button BtnLoadImg;
         private PictureBox PicImage;
