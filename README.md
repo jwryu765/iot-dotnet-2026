@@ -61,7 +61,7 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 
     ![alt text](image-3.png)
     
-9. 만들기 버튼 클릭 - [소스](./basic/Ex01_basic/ConsoleApp01/Program.cs)
+9. 만들기 버튼 클릭 - [소스](./basic/Ex01_basic/ConsoleApp1/Program.cs)
 
     ```cs
     // 최신방식 - 처음 학습시에 도움이 안되는 방식
@@ -72,7 +72,7 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 
 ### C# 기본 문법
 
-- 기본문법 - [소스](./basic/Ex01_basic/ConsoleApp02/Program.cs)
+- 기본문법 - [소스](./basic/Ex01_basic/ConsoleApp2/Program.cs)
 
     ```cs
     using System;
@@ -180,7 +180,7 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
     - 윈도우 애플리케이션(WinApp), 웹앱(WebApp), Unity, 모바일(MAUI), 키오스크(WPF) 개발함
     - GUI(Graphic User Interface) 활용
 
-### 윈앱
+## 윈앱
 
 - WinForms, Window Application, GUI... -> `WinApp`으로 통일
     - Windows Forms : 가장 오래된 윈앱개발 방식
@@ -195,7 +195,7 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 1. 새 프로젝트 - [위치](./winapp/IoT02WinSolution/)
 2. 프로젝트명, 위치, 솔루션명 지정 다음
 3. 프레임워크 .NET 10.0 선택 후 만들기
-4. IDE 툴에서 펑션키 F4로 속성창 오픈
+4. IDE 툴에서 펑션키 `F4`로 속성창 오픈
 5. 보기 > 도구상자 클릭
 6. 기본 개발화면
 
@@ -205,8 +205,8 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 8. 도구상자의 컨트롤을 디자인 화면으로 드래그해서 구성 
 9. 컨트롤의 속성 변경으로 디자인 적용
 10. 컨트롤의 이벤트 추가로 기능 구현
-11. 디자이너화면에서 `F7` <--> 비하인드코드 `Shift+F7`
-12. `Ctrl+Space`, `Alt+Enter` VS(VS Code 포함) 가장 많이 쓰는 단축키
+11. 디자이너화면 `F7` <--> 비하인트코드 `Shift+F7`
+12. `Ctrl+Space`, `Alt+Enter` VS(VS Code 포함) 가장 많으 쓰는 단축키 
 
 ![alt text](image-7.png)
 
@@ -218,9 +218,9 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 - Designer.cs에 생성된 이벤트 선언문에 대한 .cs파일 이벤트핸들러가 생성되지 않아서 발생
 
 #### 첫번째 방법
-1. Desinger.cs 내 `Windows Form Designer generated code` 영역을 확장
+1. Designer.cs 내 `Windows Form Designer generated code` 영역을 확장
 2. 빨간색 밑줄이 그인 오류난 이벤트 이름 삭제
-3. VS 시작
+3. VS 재시작
 
 #### 두번째 방법
 1. Designer.cs 내 `Windows Form Designer generated code` 영역을 확장
@@ -229,24 +229,24 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 4. .cs로 메서드 이동시키기
 
 ### 윈폼즈앱 용어
-- 모달/모달리스 : 부모창과 자식창의 관계
+- 모달/모달리스 : 부모창과 자식창의 관계   
     - 모달(Modal) : 서브(모달)창 종료전에는 부모창 제어불가
     - 모달리스(Modaless) : 서브창 종료와 관계없이 부모창 제어가능
 
 - 속성 변경방법
     - 디자인타임 변경 : [디자인] 작업 시 속성창의 속성값 변경
-    - 런타임 변경 : 비하인드 코드 내에서 속성값을 변경. 실행시 
+    - 런타임 변경 : 비하인드 코드 내에서 속성값을 변경. 실행시 변경되는 것
 
 ### 스레드 사용
 - 윈앱 자체가 UI 스레드 사용
-- 반복작업을 스레드없이 수행하면 UI 스레드와 충돌발생 -(응답 없음)
+- 반복작업을 스레드없이 수행하면 UI 스레드와 충돌발생 - (응답 없음)
 - C#에서 스레드사용 방법
     - 스레드 클래스 사용 - 개발자 코딩 필요
     - 백그라운드워커 클래스 사용 - 필수요소만 처리해주면 됨
 
-- 백그라운드워커 구현볍
-    1. 워커명_DoWork - 첫 실행하는 부분
-    2. 워커_ProgressChanged - 진행사항 UI스레드로 전달
+- 백그라운드워커 구현법
+    1. 워커_DoWork - 첫 실행하는 부분
+    2. 워커_ProgressChanged - 진행사항 UI 스레드로 전달
     3. 워커_RunWorkerCompleted - 스레드 완료후 처리할 것들 구현
 
 - async/await 키워드로 진행
@@ -259,7 +259,7 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 - 메시지박스, 다이얼로그
 - 트랙바, 진행바
 - 트리뷰, 리스트뷰, 이미지리스트, 픽쳐박스
-- 백그라운드워커(스레드)
+- `백그라운드워커(스레드)`
 - 리치텍스트박스
 
 ![alt text](image-8.png)
@@ -267,7 +267,7 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 ### 비동기 처리 앱
 - 비동기로 호출할 메서드 앞에 await 키워드 추가
 - 비동기메서드 호출하는 부모메서드 접근제어키워드와 리턴값 사이에 async 키워드 추가
-- 일반메서드를 비동기메서드로 변경 (일반메서드 뒤에 Asysc 포함)
+- 일반메서드를 비동기메서드로 변경 (일반메서드 뒤에 Async 포함)
 - 리턴값이 있을 때 변경 long -> Task<long>
 - 아주 간단하게 스레드 처리가 가능
 
@@ -281,13 +281,13 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 
 #### 외부 라이브러리 활용
 - 윈폼즈 앱 개발시 직접 디자인이 어려움
-- 3rd파티사에서 여러 라이브러리 제공
+- 3rd 파티사에서 여러 라이브러리 제공
 - 예전에는 따로 설치, 내 프로젝트에 붙여넣기
 - NuGet Package 존재 - Python pip와 동일한 기능
 - https://www.nuget.org/packages 에서 설치방법 확인
 
 #### NuGet 설치 순서
-1. 프로젝트 마우스 오른쪽 버트 > NuGet 패키지관리 클릭
+1. 프로젝트 마우스 오른쪽 버튼 > NuGet 패키지관리 클릭
 2. 찾아보기에서 필요한 라이브러리 검색
 3. 패키지 세부사항 > 종속성 현재 프로젝트 버전에서 사용여부 확인
 4. 설치 클릭, 변경내용 미리보기 확인
@@ -313,7 +313,7 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 - C# 문법 중 새 객체 생성할때 초기화 방법
 
     ```cs
-    // 전통적인 속성 할당 방식 개체 생성방식
+    // 전통적인 속성 할당 방식 객체 생성방식    
     DataGridViewTextBoxColumn colBookIdx = new DataGridViewTextBoxColumn();
     colBookIdx.Name = "book_idx";
     colBookIdx.HeaderText = "순번"; // 화면표시 컬럼명
@@ -345,23 +345,23 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
     - 공공데이터포털, 네이버API, 구글API
 
 ### 일반 웹서버
-- HTML, CSS, Js 사용 웹화면 개발 + 백엔드
+- HTML, CSS, Js 사용 웹화면 개발 + 백엔드 
 - ASP.NET, Spring Boot 등을 사용 기본적인 웹서버 개발
 - 네이버, 구글, 기업 홈페이지...
 
-### ASP.NET
+### ASP.NET 
 1. 새 프로젝트 - ASP.NET Core 웹앱(MVC) 선택
 2. 프로젝트명, 위치, 솔루션명 입력 다음
-3. 프레임워크 선택, 인증 유형 없음, HTTPS 체크, 최상위문 사용안함 체크 
+3. 프레임워크 선택, 인증 유형 없음, HTTPS 체크, 최상위문 사용암함 체크
 4. 나머지는 기존 상태 그대로 만들기
 
-![alt text](image-14.png)
+    ![alt text](image-14.png)
 
 ### ASP.NET API서버
 1. 새 프로젝트 - ASP.NET Core 웹 API
 2. 위와 동일
 3. OpenAPI, 컨트롤러 사용 체크 나머지 동일
-4. 서버 실행 
+4. 서버 실행
     - Get으로 데이터 조회 https://localhost:portnum/weatherforecast/
     - 서버 상태 확인 https://localhost:portnum/openapi/v1.json
 
@@ -391,21 +391,21 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 - Personal License 승인하면 활성화
 - Intall -> Editor 설치
 
-### 유니티 프로젝트 실행
+### 유니티 프로젝트 생성
 
 - 유니티 허브
 - 3D (Built-in Render pipeline)선택
-- Project name 입력, Location 확인
+- Project name 입력, Location 확인 
 - Create Project 클릭
 - Unity Editor 팝업
 
 ### 신 에디터 키보드/마우스 동작
 - 키보드 방향키
-    - 좌우 : 화면이동
+    - 좌우 : 화면 이동
     - 위아래 : 줌인/아웃
 - Shift : 방향이동 가속
-- 마우스
-    - 왼쪽 버트 : 오브젝트 선택
+- 마우스 
+    - 왼쪽 버튼 : 오브젝트 선택
     - 오른쪽 버튼 : 시점 변환
     - 스크롤 : 줌인/아웃
     - 스크롤 버튼 : 시점 이동
@@ -430,10 +430,228 @@ IoT 개발자 닷넷 리포지토리(기본, 중급, 응용, 프로젝트)
 - 애니메이터 사용
 - C# 스크립트 사용법
 
-
 ## WPF
 
-### WPF 구현 순서
+### WPF 개요
+
+- Windows Presentation Foundation - UI프레임워크
+    - WinForms보다 더 현대적인 UI 제작 가능
+    - 애니메이션, 2D/3D 그래픽 미디어적인 강력함
+    - 데이터(DB, JSON 등) 바인딩 기능 강력
+    - XAML(XML기반 UI설계방식)기반 디자인, 로직과 완전분리 가능
+    - UI와 로직의 완전분리를 위해 `MVVM 패턴` 사용이 쉬움
+
+### WPF 특징
+
+- XAML 사용 - 안드로이드, Qt등의 기존 XML 기반의 디자인 가능
+    - 드래그앤드랍으로 기본 디자인 후 세밀한 조정은 코딩으로 가능
+
+    ```xml
+    <Button Content="클릭" Width="100" Height="40" />
+    ```
+
+    - xaml 디자이너
+
+    ![alt text](image-16.png)
+
+- GPU 가속 렌더링
+    - WinForms CPU기반 GDI+ 렌더링으로 복잡하고 느렸음
+    - DirectX 기반으로 그래픽 처리가 부드럽다
+    - 애니메이션, 3D, 반투명효과, 그림자, 블러...
+
+- 스타일, 테마 적용이 쉬움
+    - XML 기반, HTML의 CSS와 유사
+    - 디자인 자유도가 아주 높음
+    
+### WPF 프로젝트 구성
+- App.xaml : 프로그램 시작점에 들어가는 스타일 등(static void Main과 유사)  
+    - App.xaml.cs : 프로그램 시작점에 들어가는 초기화 로직
+- MainWindow.xaml : 메인폼 디자인과 동일
+    -  MainWindow.xaml.cs : 코드비하인드
+
+### WPF MainWindow.xaml 디자인 순서
+1. `Grid`, StackPanel, Canvas 등으로 화면 구역 나누기
+2. 구역별로 컨트롤 배치
+3. xaml 수정
+    - Blend for Visual Studio에서 디자이너가 작업
+    - Visual Studio에 반영
+4. xaml.cs 비하인드코드 작성
+    - 모든 객체는 Margin(외부여백), Padding(내부여백)
+    - Achoring 표시 : 체인이 연결/끊김으로 표시
+    ![alt text](image-17.png)
+
+    - 그리드를 나누는 표시 
+    - 각 나눈 영역은 n배(*)로 표시
+    - *가 없으면 픽셀 고정 사이즈
+    ![alt text](image-18.png)
+5. 새 창 추가
+6. App.xaml에서 시작하는 창을 변경
+7. xaml은 대부분 도구상자, 속성을 사용하는 것보다 직접 xaml코딩으로 디자인 많이함
+
+### 네비게이션앱
+
+- 하나의 창에 여러 페이지를 전환하면서 사용하는 방식앱
+
+![alt text](image-19.png)
+
+#### 화면 레이아웃 구성
+- Grid : 가장 기본. 내부들어오는 객체가 그리드셸을 가득 채움(Margin이 없을때)
+    - Margin : 숫자하나(상하좌우 동일 여백), 두개(좌우/상하), 네개(좌,상,우,하 여백)
+- StackPanel : 내부의 객체가 순차적으로 쌓임. 수평/수직
+    - Orientation="Vertical"이 기본
+- DockPanel : 내부의 객체를 상하좌우 중앙으로 분리
+    - DockPanel.Dock에 Left, Right, Top, Bottom으로 위치지정
+- Canvas : 
+
+#### 이미지, 동영상
+- 이미지 - 솔루션 탐색기 선택
+    - 속성 > 빌드 작업 `리소스` 변경
+- 동영상 - 솔루션 탐색기 선택
+    - 속성 > 빌드 작업 `내용`으로 변경
+    - 출력 디렉토리로 복사 `새 버전이면 복사`, `항상 복사` 중 선택
+    - bin 아래 debug/release 폴더에 복사
+    - MediaElement Source 할당작업을 코드비하인드에서 처리
+
+#### 컨트롤 디자인
+
+- 일반 버튼 원본
+
+```xml
+<Button Margin="50" Click="Button_Click" Content="Press Me">
+</Button>
+```
+![alt text](image-20.png)
+
+- Button.Template 속성을 변경
+
+```xml
+<Button Margin="50" Click="Button_Click" Content="Press Me">
+    <Button.Template>
+        <ControlTemplate TargetType="Button">
+            <Grid>
+                <Rectangle RadiusX="12" RadiusY="12" 
+                           Fill="#25A3FB" Stroke="DarkBlue" StrokeThickness="4" />
+                <Label Content="{TemplateBinding Content}" Foreground="White" FontSize="20" FontWeight="ExtraBold"                                   
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+    </Button.Template>
+</Button>
+```
+
+![alt text](image-21.png)
+
+- ControlTemplate TargetType을 Button 지정
+- 보통 Grid(객체들이 겹쳐서 표현되기 때문) 안에 여러 객체를 위치
+- 부모객체(Button)의 속성을 가져다 쓰려면 `{TemplateBinding 속성명}` 형태로 설정
+
+```xml
+<Button Margin="50" Click="Button_Click" Content="Press Me">
+    <Button.Template>
+        <ControlTemplate TargetType="Button">
+            <Grid>
+                <Rectangle RadiusX="12" RadiusY="12" 
+                           Fill="#25A3FB" Stroke="DarkBlue" StrokeThickness="4">
+                    <Rectangle.Effect>
+                        <DropShadowEffect Color="Black"
+                                          BlurRadius="15"
+                                          ShadowDepth="5"
+                                          Direction="320"
+                                          Opacity="0.5" />
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Label Content="{TemplateBinding Content}" 
+                       Foreground="White" FontSize="20" FontWeight="ExtraBold"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+    </Button.Template>
+</Button>
+```
+- 그림자 추가
+
+![alt text](image-22.png)
+
+#### 리소스 디자인
+
+- 컨트롤 디자인은 하나의 객체만 가능
+- 컨트롤 디자인을 적용하려면 객체마다 전부 복사해야 함
+- 적용방법
+    1. 해당 페이지 리소스 생성하면 페이지내 해당 객체들만 적용
+    2. App.xaml에 리소스 생성하면 프로젝트 내 모든 객체에 적용
+    3. *.xaml로 리소스 파일 만들고, 코드내에서 불러와서 적용
+
+- Page.Resources, Window.Resources, Application.Resource 태그 내에 작성
+
+```xml
+<!-- 기본틀 -->
+<Style x:Key="BlueShadowButtonStyle" TargetType="Button">
+    <Setter Property="Template">
+        <Setter.Value>
+           <!-- 컨트롤 디자인 내용 붙여넣으면 끝! --> 
+           <!-- ControlTemplate 하위만 복사 -->
+        </Setter.Value>
+    </Setter>
+</Style>
+```
+
+- x:Key를 삭제하면 페이지, 창, 프로젝트내 모든 객체에 바로 적용
+
+![alt text](image-23.png)
+
+- Key를 적용하려면 해당 객체에 Style 속성 사용
+    - `Style="{StaticResource BlueShadowButtonStyle}"`
+
+- 리소스 파일로 저장하고 로드하기
+
+```xml
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- x:Key 는 나중에 -->
+    <Style TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Rectangle RadiusX="12" RadiusY="12" 
+    Fill="#25A3FB" Stroke="DarkBlue" StrokeThickness="4">
+                            <Rectangle.Effect>
+                                <DropShadowEffect Color="Black"
+                   BlurRadius="15"
+                   ShadowDepth="5"
+                   Direction="320"
+                   Opacity="0.5" />
+                            </Rectangle.Effect>
+                        </Rectangle>
+                        <Label Content="{TemplateBinding Content}" 
+Foreground="White" FontSize="20" FontWeight="ExtraBold"
+HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
+```
+
+- App.xaml에서 로드 - 최종방식
+
+```xml
+<Application.Resources>
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="/ButtonStyles.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+</Application.Resources>
+```
+
+![alt text](image-24.png)
+
+#### Presenter (나중에)
+
+- 컨트롤의 실제 내용을 화면에 표시하는 자리
+
 
 
 ### OpenAPI연동 앱
