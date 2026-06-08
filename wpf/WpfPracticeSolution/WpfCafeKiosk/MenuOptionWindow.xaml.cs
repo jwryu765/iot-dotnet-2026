@@ -25,6 +25,7 @@ namespace WpfCafeKiosk
         public MenuOptionWindow(string menuName, int price, string imagePath)
         {
             InitializeComponent();
+
             this.menuName = menuName;
             this.price = price;
             this.imagePath = imagePath;

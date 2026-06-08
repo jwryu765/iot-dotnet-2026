@@ -55,9 +55,8 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0" Content="주문 담기" Background="#FF5A45" Foreground="White" FontWeight="Bold" Height="50" />
-                
-                <Button x:Name="BtnCancel" Grid.Column="2" Content="취소" Background="#5D5353" Foreground="White" FontWeight="Bold" Height="50"
-                  Click="BtnCancel_Click"/>
+
+                <Button x:Name="BtnCancel" Grid.Column="2" Content="취소" Background="#5D5353" Foreground="White" FontWeight="Bold" Height="50" BorderThickness="0" Click="BtnCancel_Click" />
             </Grid>
         </Grid>
     </materialDesign:Card>
