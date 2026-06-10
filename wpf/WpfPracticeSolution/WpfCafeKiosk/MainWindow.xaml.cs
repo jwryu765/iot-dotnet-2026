@@ -222,6 +222,7 @@ namespace WpfCafeKiosk
             string strTag = btn.Tag.ToString();
 
             // MessageBox.Show($"{price}", $"{name}");
+            Console.WriteLine($"{strTag} 메뉴 클릭!");
             //MenuOptionWindow win = new MenuOptionWindow(menuName, price, imagePath);
             MenuOptionWindow win = new MenuOptionWindow(strTag);
 
@@ -286,6 +287,54 @@ namespace WpfCafeKiosk
             RefreshOrderSummary();
         }
 
+        // 주문, 주문상세 DB 저장메서드
+        private void SaveOrders()
+        {
+            int totalCount = orders.Sum(x => x.Count);
+            int totalAmount = orders.Sum(x => x.TotalPrice);
+
+            // @ 여러줄문자열 키워드
+            // orders 테이블 INSERT하고 자동생성된 order_id값을 리턴
+            string orderQuery = $@"INSERT INTO orders
+                                    (
+                                       total_count,
+                                       total_amount
+                                    )
+                                    VALUES 
+                                    (
+                                       {totalCount}, 
+                                       {totalAmount}
+                                    );
+
+                                    SELECT LAST_INSERT_ID();";
+
+            int orderID = db.ExecuteScalar(orderQuery);
+
+            // order_detail 테이블에 주문상세 INSERT
+            foreach (OrderItem item in orders)
+            {
+                string orderDetailQuery = $@"INSERT INTO order_detail
+                                            (
+                                               order_id, 
+                                               menu_id, 
+                                               menu_name, 
+                                               price, 
+                                               count, 
+                                               total_price
+                                            )
+                                            VALUES
+                                            (   
+                                               {orderID}, 
+                                               {item.MenuId}, 
+                                               '{item.MenuName}', 
+                                               {item.Price}, 
+                                               {item.Count}, 
+                                               {item.TotalPrice}
+                                            )";
+
+                db.ExecuteNonQuery(orderDetailQuery);
+            }
+        }
 
         // 결제버튼
         private void BtnPay_Click(object sender, RoutedEventArgs e)
@@ -305,7 +354,11 @@ namespace WpfCafeKiosk
 
             if (result == true)
             {
-                // TODO : DB저장
+                // DB저장
+                SaveOrders();
+                Console.WriteLine("주문 DB저장 완료!");
+
+                // TODO : 카드결제창 팝업
             }
             else
             {
