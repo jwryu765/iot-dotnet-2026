@@ -5,9 +5,9 @@ namespace WpfCafeKiosk.Common
 {
     public class DatabaseHelper
     {
-        // MySQL 연결문자열 key=value;
-        private string connStr = "Server=localhost;" +  // 운영아이피로 바꾸세요
-                                 "Port=3306;" +  // 운영포트로 변경할 것
+        // MySQL 연결문자열 key=value; 
+        private string connStr = "Server=localhost;" +   // 운영아이피로 바꾸세요
+                                 "Port=3306;" +   // 운영포트로 변경할 것
                                  "Database=cafekiosk;" +
                                  "User ID=root;" +  // 운영DB 사용자로 변경
                                  "Password=my123456;" +  // 패스워드 변경할 것
@@ -41,7 +41,7 @@ namespace WpfCafeKiosk.Common
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
 
-        // DB실행 메서드(실행결과 리턴)
+        // DB실행 메서드(실행결과 리턴X)
         // INSERT, UPDATE, DELETE
         public void ExecuteNonQuery(string sql)
         {
@@ -50,7 +50,9 @@ namespace WpfCafeKiosk.Common
 
             using MySqlCommand cmd = new MySqlCommand(sql, conn);
 
-            cmd.ExecuteNonQuery();  // 결과 안보고 실행가능, 건수리턴도 가능
+            cmd.ExecuteNonQuery(); // 결과 안보고 실행가능, 건수리턴도 가능
         }
+
+
     }
 }
