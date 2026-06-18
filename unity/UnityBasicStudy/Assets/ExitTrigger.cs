@@ -21,8 +21,7 @@ public class ExitTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameOverText.SetActive(true);
-            Time.timeScale = 0f;
+            Time.timeScale = 0f;  // 게임오버 되면 동작 멈춤
         }
     }
 }
-

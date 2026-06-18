@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TestPlay : MonoBehaviour
+public class MoveCube : MonoBehaviour
 {
     //private Vector3 position;
     private float speed = 20f;
@@ -41,18 +41,18 @@ public class TestPlay : MonoBehaviour
         //{
         //    position.y = 1f;
         //    transform.Rotate(position);
-        //}
+        //}        
 
-        // 앞뒤 이동
+        /// 앞뒤 이동 
         float move = Input.GetAxis("Vertical");
         move = move * speed * Time.deltaTime;
 
         transform.Translate(Vector3.forward * move);
 
-        // 좌우 회전
+        /// 좌우 회전
         float rotate = Input.GetAxis("Horizontal");
         rotate = rotate * rotateSpeed * Time.deltaTime;
 
         transform.Rotate(Vector3.up * rotate);
-    }
+    }    
 }

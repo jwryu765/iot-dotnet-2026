@@ -12,8 +12,8 @@ public class DoorOpener : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player")) // 게임오브젝트 중 Player라는 태그를 가지고 있는 객체에
+    {        
+        if (other.CompareTag("Player")) // 게임오브젝트 중 Player라는 태그를 가지고 있는 객체에 
         {
             if (doorAnimator != null)
             {

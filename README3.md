@@ -510,7 +510,6 @@ private void OnTriggerEnter(Collider other)
 
 ### 2.3. 생산라인 구축
 
-
 #### 생산품 박스
 
 - Cube 오브젝트로 생성
@@ -600,7 +599,7 @@ https://github.com/user-attachments/assets/33c491e5-cb2b-4611-976e-b5caecdde8ee
 
 #### 컨베이어 벨트 여러개 구성
 
-- 프리랩 드래그 추가
+- 프리팹 드래그 추가
 
 #### 컨베이어 벨트 멈추기 기능
 
@@ -608,31 +607,35 @@ https://github.com/user-attachments/assets/33c491e5-cb2b-4611-976e-b5caecdde8ee
 - 로직 변경
 
 ```cs
+using UnityEngine;
+
 public class ConveyorBelt : MonoBehaviour {
     ...
     [Header("벨트 동작여부")]
     public bool isRunning = true;
-    private void OnCollisionStay(Collision collision)
-    {
+    
+    private void OnCollisionStay(Collision collision) {
         Rigidbody rb = collision.rigidbody;
-        if (rb == null) return;
-        if (!isRunning)
-        {
-            rb.linearVelocity = Vector3.zero;
+
+        if (rb == null) return; 
+        if (!isRunning) {
+            rb.linearVelocity = Vector3.zero; // 0으로 초기화
             return;
         }
+
         rb.linearVelocity = moveDirection.normalized * speed;
     }
-    public void Stop()
-    {
-        isRunning = false; // 중지
+
+    public void Stop() {
+        isRunning = false;  // 중지
     }
-    public void StartBelt()
-    {
-        isRunning = true; // 재시작
+
+    public void StartBelt() {
+        isRunning = true;  // 재시작
     }
 }
 ```
+
 - 벨트 동작여부 체크 확인
 
 ![alt text](image-102.png)
@@ -644,14 +647,12 @@ public class ConveyorBelt : MonoBehaviour {
 
 ![alt text](image-103.png)
 
-- SebsirTrigger.cs 스크립트 생성
+- SensorTrigger.cs 스크립트 생성
 
 ```cs
-public class SensorTrigger : MonoBehaviour
-{
+public class SensorTrigger : MonoBehaviour {
     // 다른 Collider가 들어와서 Trigger 발생하면?
-    private void OnTriggerEnter(Collider other)
-    {
+    private void OnTriggerEnter(Collider other) {
         Debug.Log("제품 감지!");
     }
 }
@@ -662,37 +663,41 @@ public class SensorTrigger : MonoBehaviour
 - SensorTrigger.cs 스크립트 재 수정
 
 ```cs
-public class SensorTrigger : MonoBehaviour{
+public class SensorTrigger : MonoBehaviour {
     [Header("컨베이어 1")]
     public ConveyorBelt conveyor1;
     [Header("컨베이어 2")]
     public ConveyorBelt conveyor2;
     private bool isProcessing = false;
-    private void OnTriggerEnter(Collider other)
-    {
+    
+    private void OnTriggerEnter(Collider other) {
         if (isProcessing) return;
-        if (other.CompareTag("Product"))
-        {
+        if (other.CompareTag("Product")) {
             // 시간이 걸리는 작업을 여러 프레임에 나눠서 실행하는 기능
             StartCoroutine(Process());
         }
     }
-    private IEnumerator Process(){
+
+    private IEnumerator Process() {
         isProcessing = true;
         Debug.Log("제품 감지!");
         conveyor1.Stop();  // isRunning = false;
         conveyor2.Stop();
+
         yield return new WaitForSeconds(3.0f);  // 3초동안 대기한 뒤 다음로직으로 
+
         conveyor1.StartBelt();
         conveyor2.StartBelt();
+
         yield return new WaitForSeconds(1.0f); 
+
         isProcessing = false;
     }
 }
 ```
 
-- ConveyorBelt 컨베이어 1번 변수에 Collider 지동된 벨트 객체 할당
-- ConveyorBelt 컨베이어 2번 변수에 Collider 지동된 벨트 객체 할당
+- ConveyorBelt 컨베이어 1번 변수에 Collider 지정된 벨트 객체 할당
+- ConveyorBelt 컨베이어 2번 변수에 Collider 지정된 벨트 객체 할당
 
 ![alt text](image-105.png)
 
@@ -702,7 +707,7 @@ public class SensorTrigger : MonoBehaviour{
 
 #### 벨트 동작화면
 
-- mp4 등록예정
+https://github.com/user-attachments/assets/c232dd7f-d635-413a-83e9-4077c8002f4a
 
 #### 컨베이어, 스폰 기능 동기화
 
@@ -711,17 +716,17 @@ public class SensorTrigger : MonoBehaviour{
 
 ---
 
-### 2.4. ProBuilder
+### 2.4. ProBuilder 
 
 #### 개요
 
-- Unity에서 건물을 손쉽게 만들 수 있도록 도와주는 패키지
-- 
-- 
+- Unity에서 건물이나 여러 오브젝트를 손쉽게 만들 수 있도록 도와주는 패키지
+- 3D 모델링 기능이 없는 Unity를 Blener처럼 모델링할 수 있도록 지원
+- Blender 만큼 강력하지는 않음
 
 #### 설치
 
-- Windows > Package Manger > Unity Registry에서 `ProBuilder` 검색 후 설치
+- Windows > Package Manager > Unity Registry에서 `ProBuilder` 검색 후 설치
 
 ![alt text](image-106.png)
 
@@ -733,63 +738,77 @@ public class SensorTrigger : MonoBehaviour{
 
 - Heirarchy 창 > 마우스 오른쪽 > ProBuilder > 오브젝트 선택
 
-
-- cube 상태에서
-- Vertex Selection(점 선택), Edge Selection(선 선택), Face Selection(면 선택)
-- Move, Rotate, Scale 기능으로 오브젝트 Shape를 변형
-
 - 프로빌더로 생성한 오브젝트 선택 후
 - Scene 뷰 툴바 > ProBuilder 선택
 
+![alt text](image-108.png)
 
 - 상단 툴바에 프로필더 아이콘 버튼 추가
 
-![alt text](image-108.png)
+![alt text](image-109.png)
+
+- Cube 상태에서...
+- Vertex Selection(점 선택), Edge Selection(선 선택), Face Selection(면 선택)
+- Move, Rotate, Scale 기능으로 오브젝트 Shape를 변형
+
+![alt text](image-110.png)
 
 - 3D 모델링툴 Blender와 유사한 기능
 
 #### Tip
 
-- 바닥 오브젝트(Plane)와 다른 오브젝트(Cube 등)를 공간없이
+- 바닥 오브젝트(Plane)와 다른 오브젝트(Cube 등)를 공간없이 
     - Cube에서 V 키 누른 상태에서 위치이동
 
-![alt text](image-109.png)
+![alt text](image-111.png)
 
 #### 오브젝트 변형법
 
 - Probuilder 큐브 생성
-- 변형툴바 ProBuilder 선택
+- 변형툴바 Probuilder 선택
 - Face Selection 클릭, 앞쪽세로면 선택 Move 기능으로 확장
-
-![alt text](image-110.png)
-
-- Edge Selection 클릭, 왼쪽상단 선 선택 Move 기능으로 축소
-
-![alt text](image-111.png)
-
-- Face.. 클릭 반대편 면 클릭, Context Menu > Extrude Faces 클릭
 
 ![alt text](image-112.png)
 
+- Edge Selection 클릭, 왼쪽상단 선 선택 Move 기능으로 축소
+
 ![alt text](image-113.png)
+
+- Face.. 클릭 반대편 면 클릭, Context Menu > Extrude Faces 클릭
+
+![alt text](image-114.png)
+
+![alt text](image-115.png)
 
 - Move, Rotate, Scale 사용 - 모양을 변형
 - Face.. 클릭, Cube 상단 클릭
 - Shift 누른 상태에서 Scale 조정
 
-![alt text](image-114.png)
+![alt text](image-116.png)
 
-- contaext Menu > Extrude Faces 클릭
+- Context Menu > Extrude Faces 클릭
 
-![alt text](image-115.png)
+![alt text](image-117.png)
 
 - Edge... 클릭. 최상후면 선 클릭 > Bezel Edge 선택
 
-![alt text](image-116.png)
+![alt text](image-118.png)
 
-- 바닥에서 1번 마우스 드래그드롭으로 x, z 넓이 생성
+- Edge를 여러개 선택 > Bezel Edge 선택
 
-### 2.5. Unity Factory
+![alt text](image-119.png)
+
+![alt text](image-120.png)
+
+- 바닥에서 1번 마우스 드래그드롭으로 x, z 넓이 생성, 2번 드래그드롭으로 y 높이 생성
+
+![alt text](image-121.png)
+
+#### 프로빌더 연습
+
+
+
+### 2.3. Unity Factory
 
 - Unity Technologies Japan에서 제공하는 무료 HDRP 공장 시뮬레이션 에셋
 - 공장건물부터 컨베이어라인, 로봇팔, 작업자, 조명...
