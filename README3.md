@@ -768,7 +768,7 @@ private IEnumerator Process() {
 }
 ```
 
-![alt text](image-133.png)
+![alt text](image-132.png)
 
 #### 최종 실행결과
 
