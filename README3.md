@@ -985,6 +985,84 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 ![alt text](image-139.png)
 
 
+3. Camera
+    - CameraController.cs - 물체를 기준으로 화면을 회전, 줌인아웃 기능
+
+4. BrightonOffice 오브젝트
+    - 3DMax, Blender 같은 3D 모델링 툴에서 작업 3D 사무실모델
+    - Brighton_Floor_4 - 분석의미 없음
+
+5. BrightinOffice.Plane
+    - NavMesh Surface
+
+    ![alt text](image-140.png)
+
+    - NPC나 로봇이 길을 찾기 위해 사용하는 이동가능한 바닥정보
+    - 로봇청소기의 경우 프리팹에 길이 셋팅되어 있음. Prefabs > AI BOTS 클릭
+
+    ![alt text](image-141.png)
+
+    - NavMesh - 벽이나 장애물 피하고, 이동가능한 바닥만 따라다니게 미리 계산해놓은 객체
+        - Agent Type - 어떤 캐릭터가 사용할지 결정
+        - Default Area - Walkable(이동가능), Not Walkable(이동불가), Jump(점프필요)
+
+        - Bake 버튼 - 바닥분석 후, 이동가능한 영역 계산 후 새로운 NaveMesh 생성
+        - 중간에 바닥을 막는 오브젝트가 존재하면 NavMesh가 분리됨
+
+        ![alt text](image-142.png)
+
+        - 문 등의 오브젝트를 제거하고 clear후 재 Bake
+
+        ![alt text](image-143.png)
+
+
+6. IoTDevices - 오피스에 위치하는 IoT 센서 장비들에 대한 설정
+
+7. DeviceSimulator - IoT 시뮬레이션을 위한 더미데이터 생성용 클래스
+
+8. AppLogic - Humanoid, Robot청소기 동작 처리용 오브젝트
+
+    ![alt text](image-144.png)
+
+    - AIAgent - Humanoid 오브젝트 PathWalker 스크립트 컴포넌트에 WayPoint 7개 이미지정
+    - WayPoint 위치 변경하면, NavMash Surface를 자동으로 이동
+
+9. MQTT Connector - IoThub.MqttMessageProvider.cs(MQTT 브로커 연결용), IoTHub. IoTDeviceMessageReader(MQTT 메세지 일기용) 스크립트로 구성
+
+
+#### 분석 및 수정 결과화면
+
+- 동영상
+
+
+### 2.5. WPF Dummy IoT 연동 프로젝트
+
+- IoT Sample Project는 M2Mqtt 라이브러리로 동작
+- MQTTnet으로 진행
+
+#### Unity Project 생성
+
+- URP로 프로젝트 생성
+- Asset Store에서 `Los Poly`로 검색 후 Free 클릭
+    - Cute Magic – Stylized Low Poly Interior Pack
+    - Cute Low Poly Furniture Pack
+    - Pandazole - 저 폴리 에셋 번들
+
+#### 방 구성
+
+- Pandazole Home Interior 애셋으로 구성
+
+#### MQTT 패키지 불러오기
+
+- Github에서 [NuGetForUnity](https://github.com/GlitchEnzo/NuGetForUnity) 설치
+
+
+
+- MQTTnet은 DDL을 직접 가져와서 구성. MQTTnet 버전 충돌
+- MQTT for Unity(M2Mqtt)를 사용
+
+![alt text](image-145.png)
+
 ### 2.9. Unity Factory 컨버전
 
 - TODO : 
