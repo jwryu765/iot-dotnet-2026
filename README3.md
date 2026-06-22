@@ -984,36 +984,90 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 
 ![alt text](image-139.png)
 
+#### 전체 분석
 
-3. Camera
-    - CameraController.cs - 물체를 기준으로 화면을 회전, 줌인아웃 기능
+- IoT Sample Scene 오픈
+    - Hierarchy 창 맨 위 오브젝트부터 분석 시작
 
-4. BrightonOffice 오브젝트
-    - 3DMax, Blender 같은 3D 모델링 툴에서 작업 3D 사무실모델
-    - Brighton_Floor_4 - 분석의미 없음
+- 프로젝트창
+    - IotConnector 폴더 - IndustryCSE.IoT 네임스페이스 사용
 
-5. BrightinOffice.Plane
-    - NavMesh Surface
+- 게임오브젝트 활성화 구분
+    - activeSelf - 자기자신이 활성상태인지 여부
+    - activeHierarchy - 부모오브젝트 포함해서 활성상태 여부
+
+1. Canvas UI 클릭
+    - Top Menu Bar 아래 구성 확인
+    - btn - Cloud 불필요, 사용체크 해제/비활성화
+    - Date and Time 오브젝트
+        - DateTimeGenerator.cs 스크립트 더블클릭
+        - yyyy-MM-dd HH:mm:ss 포맷팅으로 변경
 
     ![alt text](image-140.png)
 
-    - NPC나 로봇이 길을 찾기 위해 사용하는 이동가능한 바닥정보
-    - 로봇청소기의 경우 프리팹에 길이 셋팅되어 있음. Prefabs > AI BOTS 클릭
+2. ControlSystem - Canvas UI 왼쪽 버튼집합
+    - Button - 캔버스 사용시 재일 중요
 
     ![alt text](image-141.png)
 
-    - NavMesh - 벽이나 장애물 피하고, 이동가능한 바닥만 따라다니게 미리 계산해놓은 객체
-        - Agent Type - 어떤 캐릭터가 사용할지 결정
-        - Default Area - Walkable(이동가능), Not Walkable(이동불가), Jump(점프필요)
+    - On Click() 이벤트 확인
+    - AppStates.ToggleOccupancy()
+        - AppLogic 빈 그룹오브젝트 연결
+        - AppStates.cs가 컴포넌트로 연계
 
-        - Bake 버튼 - 바닥분석 후, 이동가능한 영역 계산 후 새로운 NaveMesh 생성
-        - 중간에 바닥을 막는 오브젝트가 존재하면 NavMesh가 분리됨
+    ![alt text](image-142.png)
 
-        ![alt text](image-142.png)
+    - AppStates.cs 스크립트 분석/수정
 
-        - 문 등의 오브젝트를 제거하고 clear후 재 Bake
+    - 한글 폰트 Assets에 복사
+    - Window > TextMeshPro > Font Asset Creator 선택
+    - 폰트 선택
+    - Character Set > Custom Range
+    - `32-126,44032-55203,12593-12643,8200-9900` 지정
+    - Generate Font Atlas 클릭
 
-        ![alt text](image-143.png)
+    ![alt text](image-143.png)
+
+    - 완료후 Save As... 리소스 폴더에 저장
+
+    - OverlayMode TextMeshPro 컴포넌트에 폰트 지정
+
+    ![alt text](image-144.png)
+
+    - 실행
+
+    ![alt text](image-145.png)
+
+    - AppState에 적용된 폰트 변경 처리
+
+3. Camera 
+    - CameraController.cs - 물체를 기준으로 화면을 회전, 줌인아웃 기능
+
+4. BrightonOffice 오브젝트
+    - 3DMax, Blender 같은 3D 모델링 툴에서 작업 3D 사무실 모델
+    - Brighton_Floor_4 - 분석의미 없음    
+5. BrightonOffice.Plane
+    - NavMesh Surface
+
+   ![alt text](image-147.png) 
+
+   - NPC나 로봇이 길을 찾기 위해 사용하는 이동가능한 바닥정보
+   - 로봇청소기의 경우 프리팹에 길이 셋팅되어 있음. Prefabs > AI BOTS 클릭
+
+   ![alt text](image-148.png)
+
+   - NavMesh - 벽이나 장애물 피하고, 이동가능한 바닥만 따라다니게 미리 계산해놓은 객체
+    - Agent Type - 어떤 캐릭터사 사용할지 결정
+    - Default Area - Walkable(이동가능), Not Walkable(이동불가), Jmp(점프필요)
+
+    - Bake(굽기) 버튼 - 바닥분석 후, 이동가능한 영역 계산 후 새로운 NavMesh 생성
+    - 중간에 바닥을 막는 오브젝트가 존재하면 NavMesh가 분리됨
+
+    ![alt text](image-149.png)
+
+    - 문 등의 오브젝트를 제거하고 Clear후 재 Bake 
+
+    ![alt text](image-150.png)
 
 
 6. IoTDevices - 오피스에 위치하는 IoT 센서 장비들에 대한 설정
@@ -1022,18 +1076,16 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 
 8. AppLogic - Humanoid, Robot청소기 동작 처리용 오브젝트
 
-    ![alt text](image-144.png)
+    ![alt text](image-151.png)
 
     - AIAgent - Humanoid 오브젝트 PathWalker 스크립트 컴포넌트에 WayPoint 7개 이미지정
     - WayPoint 위치 변경하면, NavMash Surface를 자동으로 이동
 
-9. MQTT Connector - IoThub.MqttMessageProvider.cs(MQTT 브로커 연결용), IoTHub. IoTDeviceMessageReader(MQTT 메세지 일기용) 스크립트로 구성
-
+9. MQTT Connector - IoThub.MqttMessageProvider.cs(MQTT 브로커 연결용), IoTHub.IotDeviceMessageReader(MQTT 메시지 읽기용) 스크립트로 구성
 
 #### 분석 및 수정 결과화면
 
 - 동영상
-
 
 ### 2.5. WPF Dummy IoT 연동 프로젝트
 
@@ -1043,7 +1095,7 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 #### Unity Project 생성
 
 - URP로 프로젝트 생성
-- Asset Store에서 `Los Poly`로 검색 후 Free 클릭
+- Asset Store에서 `Low Poly`로 검색 후 Free 클릭
     - Cute Magic – Stylized Low Poly Interior Pack
     - Cute Low Poly Furniture Pack
     - Pandazole - 저 폴리 에셋 번들
@@ -1052,16 +1104,20 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 
 - Pandazole Home Interior 애셋으로 구성
 
+![alt text](image-152.png)
+
 #### MQTT 패키지 불러오기
 
-- Github에서 [NuGetForUnity](https://github.com/GlitchEnzo/NuGetForUnity) 설치
+- Github 에서 [NuGetForUnity](https://github.com/GlitchEnzo/NuGetForUnity) 설치
 
+    ![alt text](image-153.png)
 
-
-- MQTTnet은 DDL을 직접 가져와서 구성. MQTTnet 버전 충돌
+- MQTTnet 은 DLL을 직접 가져와서 구성. MQTTnet 버전 충돌
 - MQTT for Unity(M2Mqtt)를 사용
 
-![alt text](image-145.png)
+![alt text](image-154.png)
+
+
 
 ### 2.9. Unity Factory 컨버전
 
