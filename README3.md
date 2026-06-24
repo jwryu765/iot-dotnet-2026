@@ -1107,12 +1107,12 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 
 ![alt text](image-152.png)
 
-<!-- 문서내 링크 -->
 #### 한글폰트 설정
 
+<!-- 문서내 링크 -->
 [전체분석내](#전체-분석)
 
-#### MQTT 패키지 불러오기
+#### NuGet 패키지 불러오기
 
 - Github 에서 [NuGetForUnity](https://github.com/GlitchEnzo/NuGetForUnity) 설치
 
@@ -1120,8 +1120,6 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 
 - MQTTnet 은 DLL을 직접 가져와서 구성. MQTTnet 버전 충돌
 - MQTT for Unity(M2Mqtt)를 사용
-
-![alt text](image-154.png)
 
 #### M2MqttUnity 설치
 
