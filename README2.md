@@ -649,10 +649,4 @@ CREATE TABLE sensor_data
 
 ### MVVM은 나중에
 
-[다음](./README3.md)
-
-## 2. Unity 실습
-
-### 2.1. Essentials PathWay
-
-### 2.2. Unity Factory
+[유니티학습](./README3.md)
