@@ -12,9 +12,10 @@ namespace WebApplication1
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            // 데이터베이스 매핑. appsettings.json에 작성한 연결문자열명
+            // 1. 데이터베이스 매핑. appsettings.json에 작성한 연결문자열명 
             var conn = builder.Configuration.GetConnectionString("BookRentalShopConnection");
 
+            // 2. Models/MySqlDbContext.cs 내용을 매핑
             builder.Services.AddDbContext<MySqlDbContext>(options =>
             {
                 // MySQL하고 연결하라는 명령

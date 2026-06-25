@@ -8,12 +8,11 @@ namespace ProductApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             var connString = builder.Configuration.GetConnectionString("TestDbConnection");
 
             Console.WriteLine(connString);
 
-            // builder.Services.AddDbContext<>  Entity Framework를 안쓰기 때문에 사용불가
+            // builder.Services.AddDbContext<>  EntityFramework를 안쓰기때문에 사용불가
 
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -28,8 +27,6 @@ namespace ProductApi
             }
 
             app.UseAuthorization();
-
-
             app.MapControllers();
 
             app.Run();

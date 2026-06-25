@@ -12,14 +12,19 @@ namespace WebApplication1.Models
 
         [Column("author")]
         public string Author { get; set; }
+
         [Column("div_code")]
         public string DivCode { get; set; }
+        
         [Column("book_name")]
         public string BookName { get; set; }
+
         [Column("release_dt")]
         public DateTime ReleaseDt { get; set; }
+
         [Column("isbn")]
         public string ISBN { get; set; }
+
         [Column("price")]
         public decimal Price { get; set; }
     }

@@ -2,9 +2,14 @@
 
 namespace WebApplication1.Controllers
 {
-    public class HomeController1 : Controller
+    public class BoardController : Controller
     {
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult List()
         {
             return View();
         }
