@@ -55,7 +55,7 @@
 - html > 컨텍스트 메뉴 > Open with Live Server 클릭
 - 5500 포트 기본 사용
 
-![alt-text](./image-159.png)
+![alt-text](./image-160.png)
 
 #### HTML 기본구조
 
@@ -116,7 +116,7 @@
 - lorem - 화면에 텍스트 꾸미는 작업 도와주는 스니펫
     - lorem20 - 임의 표준텍스트 20단어 생성
 
-![alt text](image-160.png)
+![alt text](image-161.png)
 
 #### HTML 입력 태그
 
@@ -152,7 +152,7 @@
 - input 중 type, submit, button, reset은 button 태그와 동일
 - 웹에서 회원가입, 로그인, 게시판 등록 화면 등에 90%는 위 태그로만 구성
 
-![alt text](image-161.png)
+![alt text](image-162.png)
 
 - html에서 id에 같은 값을 써도 컴파일오류 발생 안함. 이런 오류는 개발자 몫
 
@@ -180,13 +180,13 @@
 <input type="text" name="userId" id="userId" class="form-control">
 ```
 
-![alt text](image-162.png)
+![alt text](image-163.png)
 
 - CSS는 HTML에 디자인을 미려하게 변경하는 기술
 
 - [소스](./webapp/WebTech_basic/css_exam.html)
 
-![alt text](image-163.png)
+![alt text](image-164.png)
 
 ### Javascript
 
@@ -200,7 +200,7 @@
 - html에 `<script>` 태그 사용해서 내부에 같이 표현하거나, 외부 js 파일을 연결
 - 필요한 경우 웹브라우저(Chrome)에서 개발자도구(F12)로 확인할 것
 
-![alt text](image-164.png)
+![alt text](image-165.png)
 
 #### 기본 문법
 
@@ -210,7 +210,7 @@
 - Document Object Model 약자. HTML 트리구조를 객체로 만든 모델
 - JS로 접근 가능 - [소스](./webapp/WebTech_basic/js_dom.html)
 
-![alt text](image-165.png)
+![alt text](image-166.png)
 
 #### JS 목적
 
@@ -248,15 +248,15 @@ Microsoft에서 개발한 크로스 플랫폼 웹 개발 프레임워크
 2. 프로젝트 형식, 웹 선택
 3. 웹앱 템플릿 중 ASP.NET Core로 시작하는 템플릿 선택
 
-![alt text](image-166.png)
+![alt text](image-167.png)
 
 4. 추가 정보 선택 후 만들기
 
-![alt text](image-167.png)
+![alt text](image-168.png)
 
 #### ASP.NET Core MVC 패턴 구성
 
-![alt text](image-168.png)
+![alt text](image-169.png)
 
 - Connected Service - 외부 클라우드 서비스 연결을 관리(API를 써도 잘 사용안함)
 - Properties - 프로젝트 실행 및 빌드 환경 설정
@@ -275,7 +275,7 @@ Microsoft에서 개발한 크로스 플랫폼 웹 개발 프레임워크
 - Program.cs - 웹앱 시작점(Entryint)
     - 웹서버 구동에 필요한 서비스 등록, 사용자 요청 라우팅 구성
 
-![alt text](image-169.png)
+![alt text](image-171.png)
 
 - Program.cs 
 
@@ -328,7 +328,7 @@ public static void Main(string[] args) {
 
 - Views - 화면영역
 
-    ![alt text](image-170.png)
+    ![alt text](image-172.png)
 
     - Home 폴더 - HomeController에서 사용하면 View
         - Index.cshtml - HomeController 내 Index() 액션 메서드
@@ -351,7 +351,7 @@ public static void Main(string[] args) {
         - _ViewImports.cshtml - 모든 View에 공통으로 사용하는 설정파일
         - _ViewStart.cshtml - 모든 View가 시작하기전에 실행하는 파일
 
-    ![alt text](image-171.png)
+    ![alt text](image-173.png)
 
     - _Layout.cshtml 내 태그가 일반 html 태그와 asp.net 태그로 구분
         - 각 태그 내부 속성에 asp- 시작하는 속성이 포함
@@ -361,7 +361,7 @@ public static void Main(string[] args) {
 - 핫 다시 로드(Hot Reload) - 웹 실행 중 수정사항을 곧바로 반영해서 확인할 때 사용
     - 프론트엔드를 변경시는 반영. C# 백엔드를 수정했을때는 재시작 해야함
 
-    ![alt text](image-172.png)
+    ![alt text](image-174.png)
 
 #### 시맨틱웹 태그 리스트
 
@@ -384,19 +384,19 @@ public static void Main(string[] args) {
 
 1. Controller 폴더 > Context Menu > 추가 > 컨트롤러
 
-    ![alt text](image-173.png)
-
-    ![alt text](image-174.png)
-
-2. BoardController.cs, Index() 액션메서드 > Context Menu > 뷰 추가
-
     ![alt text](image-175.png)
 
     ![alt text](image-176.png)
-        
+
+2. BoardController.cs, Index() 액션메서드 > Context Menu > 뷰 추가
+
     ![alt text](image-177.png)
 
     ![alt text](image-178.png)
+        
+    ![alt text](image-179.png)
+
+    ![alt text](image-180.png)
 
 3. _Layout.cshtml에 메뉴 추가
 
@@ -408,7 +408,7 @@ public static void Main(string[] args) {
 
 4. Board > Index.cshtml 편집
 
-    ![alt text](image-179.png)
+    ![alt text](image-181.png)
 
 
 #### DB 핸들링 
@@ -445,9 +445,9 @@ public static void Main(string[] args) {
 6. Controller 생성 - Db와 연결할 컨트롤러
     - context menu > 추가 > 컨트롤러
     
-    ![alt text](image-180.png)
+    ![alt text](image-182.png)
 
-    ![alt text](image-181.png)
+    ![alt text](image-183.png)
 
     - 데이터베이스 공급자 문제, MySQL 없어서 SQL Server 관련 설정 자동 추가
     - NuGet 패키지 버전 변경, appsettings.json 연결문자열 삭제
@@ -460,7 +460,7 @@ public static void Main(string[] args) {
     - DB모델링 시 PK이름을 id로 고정할 것
     - BookController.cs 에 메서드 파라미터 bookidx -> id로 변경. Ctrl+H 변경할 때 대소문자 구분 클릭.
 
-![alt text](image-182.png)
+![alt text](image-184.png)
 
 9. 현재 웹개발 DB연동 Mapping기술
     - ASP.NET Core(C#) - EntityFrameworkCore
@@ -522,13 +522,13 @@ VALUES
 - wwwroot(js, css정적파일), Views 폴더 없음
 - Models 폴더는 직접 생성
 
-![alt text](image-183.png)
+![alt text](image-185.png)
 
 #### Postman 설치
 
 - https://www.postman.com/downloads/ 
 
-![alt text](image-184.png)
+![alt text](image-186.png)
 
 #### MySqlConnector NuGet 패키지 설치
 
@@ -545,9 +545,250 @@ VALUES
 
 #### ProductsController 생성
 
-- To Be Continued...
+- Controller / ProductsController.cs 생성 - [소스](./webapp/WebApiSolution/ProductApi/Controllers/ProductsController.cs)
+
+#### GET - 상품 리스트 조회
+
+- Get 메서드 작성
+
+##### 실행결과
+
+![alt text](image-187.png)
+
+#### 일반메서드 vs 비동기메서드
+
+- 일반메서드 - DB처리가 완료될때까지 나머지 로직이 중지
+```cs
+[HttpGet]  // GET 메서드 선언(없어도 기본)
+public IActionResult GetProducts() {
+    List<Product> products = new(); // new List<Product>(); 와 동일기능
+
+    using var conn = new MySqlConnection(connString);
+    conn.Open();
+
+    string query = @"
+         SELECT product_id, product_name, category, price, stock, created_at
+           FROM products
+          ORDER BY product_id DESC 
+         ";  // 여러줄 문자열 @" 또는 """
+
+    using var cmd = new MySqlCommand(query, conn);
+    using var reader = cmd.ExecuteReader(); 
+
+    while (reader.Read()) {
+        Product product = new Product {
+            ProductId = reader.GetInt32("product_id"),
+            ProductName = reader.GetString("product_name"),
+            Category = reader.GetString("category"),
+            Price = reader.GetDecimal("price"),
+            Stock = reader.GetInt32("stock"),
+            CreatedAt = reader.GetDateTime("created_at")
+        };
+
+        products.Add(product);
+    }
+    return Ok(products);
+}
+```
+
+- 비동기 메서드 - 백그라운드로 동작, 다른 기능 사용
+
+![alt text](image-188.png)
+
+```csharp
+[HttpGet]  // GET 메서드 선언(없어도 기본)
+public async Task<IActionResult> GetProductsAsync() {
+    ...
+    await conn.OpenAsync();
+
+    ... 
+    using var reader = await cmd.ExecuteReaderAsync(); 
+
+    while (await reader.ReadAsync()) {
+        ...
+    }
+    return Ok(products);
+}
+```
+
+- GET /api/products 
+
+#### GET - 상품 단건 조회
+
+- ProductsController에 단건 조회용 메서드 생성
+
+- GET /api/products/id
+
+##### 실행결과
+
+![alt text](image-189.png)
+
+- 성공화면
+
+![alt text](image-190.png)
+
+- 실패화면
+
+![alt text](image-191.png)
+
+- 포스트맨 결과화면
+
+- 공공데이터포털 기능은 대부분 여기까지
+
+#### POST - 상품 등록 
+
+- ProductsController에 단건 등록 메서드 생성
+- POST /api/products
+
+#### PostMan에서 테스트
+
+- GET 메서드 이외는 웹브라우저에서 테스트 매우 어려움
+- Swagger, Postman 등의 테스트 툴 사용 거의 필수
+
+##### 실행결과
+
+![alt text](image-194.png)
+
+- Postman Post메서드 선택, Body > raw > json 데이터 입력, Send
+- Response 결과 맨아래 확인
+
+![alt text](image-195.png)
+
+- DB 입력 화면
+
+#### Command Execute 비교
+
+|메서드|사용방법|
+|---|---|
+|ExecuteReader() | SELECT 여러 행 조회 |
+|ExecuteNonQuery() | INSERT, UPDATE, DELETE 실행 |
+|ExecuteScalar() | 값 1개 반환(COUNT, MAX/MIN, LAST_INSERT_ID 등) |
+
+- 비동기는 ~Async() 로 작성할 것
+ 
+#### PUT - 상품 수정
+
+- POST 메서드로 구현 가능
+
+- PUT /api/products/id
+
+##### 실행결과
+
+![alt text](image-196.png)
+
+- Postman 결과화면
+
+![alt text](image-197.png)
+
+- Database 결과확인
+
+- Postman에서 GET으로 변경하고 Send 확인
+
+#### PATCH - 필요컬럼 수정
+
+- POST 메서드로 구현 가능. 기능을 완전 분리하고 싶을때 사용
+- PATCH /api/products/id
+- 재고만 수정하거나 카테고리만 수정하고 싶은 기능을 추가하고자 할때
+
+- Models Product.cs를 복사해서 ProductStock.cs로 변경
+- [HttpPatch("{id}/stock")] 로 URL 변경
+
+##### 실행결과
+
+![alt text](image-198.png)
+
+- PATCH 메서드에 맞게 URL 변경
+
+#### DELETE - 상품 삭제
+
+- DELETE /api/products/id
+- HttpDelete 메서드 추가
+
+##### 실행결과
+
+![alt text](image-199.png)
+
+- 삭제 확인
+
+![alt text](image-200.png)
+
+- 데이터베이스 확인
+
+#### HEAD, OPTIONS
+
+- 웹서비스 사용 여부 확인
+- 웹서비스에 지원하는 메서드 확인
+
+##### 실행결과
+
+![alt text](image-201.png)
+
+- HttpHead 결과화면
+
+![alt text](image-202.png)
+
+- HttpOptions 결과화면
+
+#### HttpMethod
+
+- [HttpMethod("GET")], [HttpMethod("POST")] 등으로 명시적으로 사용
+- 거의 사용안 함
+
+### RESTAPI 서비스 사용 애플리케이션
+
+- 하나의 웹 서비스를 가지고 여러 종류 애플리케이션에서 사용
+
+#### CORS 설정
+
+- Cross Origin Resource Sharing 교차 출처 자원 공유. 서버가 다른 곳 같에 데이터 요청을 안전하게 하도록 허용해주는 설정
+- Program.cs 추가
+
+#### HTML + Javascript 
+
+- product-client.html 생성
+- HTML, Javascript 구현 
+
+##### 실행결과
+
+![alt text](image-203.png)
+
+- 일반 조회결과
+
+![alt text](image-204.png)
+
+- 부트스트랩 기본적용 결과
+
+![alt text](image-205.png)
+
+- 부트스트랩 일괄적용 화면
+
+#### WPF 1
+
+- 공공데이터포털 부산축제정보 앱 WPF 활용
+- 부산축제정보 앱 다운사이징 코딩
+
+##### 실행결과
+
+![alt text](image-206.png)
+
+- HTML + Javascript 실행결과 동일
+
+![alt text](image-207.png)
+
+- WPF 등록화면 및 성공메시지
+
+![alt text](image-208.png)
+
+- HTML + Javascript 에서 추가된 데이터 확인 화면
+
+#### WPF 2
+
+- PUT, DELETE 기능 구현
+- Validation Check, Exception Handling 추가
 
 
+
+#### Unity
 
 ## 4. 웹 실습 프로젝트
 

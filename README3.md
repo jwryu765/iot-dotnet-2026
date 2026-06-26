@@ -487,7 +487,7 @@ private void OnTriggerEnter(Collider other)
 - https://poly.pizza/ (low polygon model)
 - https://sketchfab.com/
 
-![alt text](image-97.png)
+![alt text](image-98.png)
 
 - 호환되는 파일 포맷
     - `FBX` : Autodesk 3D(AutoCAD) 교환 포맷. Unity 가장 호환
@@ -500,11 +500,11 @@ private void OnTriggerEnter(Collider other)
 
 - 압축해제, fbx, 텍스처를 프로젝트 Assets 폴더 아래 이동
 
-![alt text](image-98.png)
+![alt text](image-99.png)
 
 - Models 폴더에 위치한 Conveyor를 Scene뷰에 드래그
 
-![alt text](image-99.png)
+![alt text](image-100.png)
 
 ---
 
@@ -518,7 +518,7 @@ private void OnTriggerEnter(Collider other)
 - Material 생성, Base Map 앞 사각형에 텍스처를 드래그
 - Rigid Body 추가
 
-![alt text](image-100.png)
+![alt text](image-101.png)
 
 #### 컨베이어 벨트 물리컴포넌트
 
@@ -558,7 +558,7 @@ public class ConveyorBelt : MonoBehaviour {
 - 컨베이어 오브젝트 중 Collider 컴포넌트 적용한 벨트에 스크립트 할당
 - 플레이 테스트 후 방향 변경
 
-![alt text](image-101.png)
+![alt text](image-102.png)
 
 #### Box Spawner 생성
 
@@ -638,14 +638,14 @@ public class ConveyorBelt : MonoBehaviour {
 
 - 벨트 동작여부 체크 확인
 
-![alt text](image-102.png)
+![alt text](image-103.png)
 
 - 컨베이어 끝에 센서가 있다고 가정. Collider 트리거 발생하면 멈춤기능
 - 빈 오브젝트 생성 > `Sensor` 명명
 - Sensor 오브젝트 > `Box Collider` 컴포넌트 추가. `Is Trigger` 체크
 - `Edit Collider` 아이콘 클릭 위치, 크기 조정
 
-![alt text](image-103.png)
+![alt text](image-104.png)
 
 - SensorTrigger.cs 스크립트 생성
 
@@ -699,11 +699,11 @@ public class SensorTrigger : MonoBehaviour {
 - ConveyorBelt 컨베이어 1번 변수에 Collider 지정된 벨트 객체 할당
 - ConveyorBelt 컨베이어 2번 변수에 Collider 지정된 벨트 객체 할당
 
-![alt text](image-105.png)
+![alt text](image-106.png)
 
 - Product 프리팹에 `Product` 태그 생성 지정
 
-![alt text](image-104.png)
+![alt text](image-105.png)
 
 #### 벨트 동작화면
 
@@ -768,7 +768,7 @@ private IEnumerator Process() {
 }
 ```
 
-![alt text](image-132.png)
+![alt text](image-133.png)
 
 #### 최종 실행결과
 
@@ -788,30 +788,30 @@ https://github.com/user-attachments/assets/85e158e2-e7bc-4922-9ede-eeb609d1b39a
 
 - Windows > Package Manager > Unity Registry에서 `ProBuilder` 검색 후 설치
 
-![alt text](image-106.png)
+![alt text](image-107.png)
 
 #### 사용법
 
 - 메뉴 Tools > ProBuilder > Create Shape > 오브젝트 선택
 
-![alt text](image-107.png)
+![alt text](image-108.png)
 
 - Heirarchy 창 > 마우스 오른쪽 > ProBuilder > 오브젝트 선택
 
 - 프로빌더로 생성한 오브젝트 선택 후
 - Scene 뷰 툴바 > ProBuilder 선택
 
-![alt text](image-108.png)
+![alt text](image-109.png)
 
 - 상단 툴바에 프로필더 아이콘 버튼 추가
 
-![alt text](image-109.png)
+![alt text](image-110.png)
 
 - Cube 상태에서...
 - Vertex Selection(점 선택), Edge Selection(선 선택), Face Selection(면 선택)
 - Move, Rotate, Scale 기능으로 오브젝트 Shape를 변형
 
-![alt text](image-110.png)
+![alt text](image-111.png)
 
 - 3D 모델링툴 Blender와 유사한 기능
 
@@ -820,7 +820,7 @@ https://github.com/user-attachments/assets/85e158e2-e7bc-4922-9ede-eeb609d1b39a
 - 바닥 오브젝트(Plane)와 다른 오브젝트(Cube 등)를 공간없이 
     - Cube에서 V 키 누른 상태에서 위치이동
 
-![alt text](image-111.png)
+![alt text](image-112.png)
 
 #### 오브젝트 변형법
 
@@ -828,54 +828,54 @@ https://github.com/user-attachments/assets/85e158e2-e7bc-4922-9ede-eeb609d1b39a
 - 변형툴바 Probuilder 선택
 - Face Selection 클릭, 앞쪽세로면 선택 Move 기능으로 확장
 
-![alt text](image-112.png)
+![alt text](image-113.png)
 
 - Edge Selection 클릭, 왼쪽상단 선 선택 Move 기능으로 축소
 
-![alt text](image-113.png)
+![alt text](image-114.png)
 
 - Face.. 클릭 반대편 면 클릭, Context Menu > Extrude Faces 클릭
 
-![alt text](image-114.png)
-
 ![alt text](image-115.png)
+
+![alt text](image-116.png)
 
 - Move, Rotate, Scale 사용 - 모양을 변형
 - Face.. 클릭, Cube 상단 클릭
 - Shift 누른 상태에서 Scale 조정
 
-![alt text](image-116.png)
+![alt text](image-117.png)
 
 - Context Menu > `Extrude Faces` 클릭
 
-![alt text](image-117.png)
+![alt text](image-118.png)
 
 - Edge... 클릭. 최상후면 선 클릭 > Bezel Edge 선택
 
-![alt text](image-118.png)
+![alt text](image-119.png)
 
 - Edge를 여러개 선택 > Bezel Edge 선택
 
-![alt text](image-119.png)
-
 ![alt text](image-120.png)
+
+![alt text](image-121.png)
 
 - 바닥에서 1번 마우스 드래그드롭으로 x, z 넓이 생성, 2번 드래그드롭으로 y 높이 생성
 
-![alt text](image-121.png)
+![alt text](image-122.png)
 
 #### 큐브형태 벽 생성
 
 - 기존 큐브 > Face 선택 > Scale 선택
 - Shift 누른 상태에서 크기조정
 
-![alt text](image-122.png)
+![alt text](image-123.png)
 
 - 원본 면 크기보다 작게 조정가능
 - Move 선택
 - Shift 누른 상태에서 위치이동
 
-![alt text](image-123.png)
+![alt text](image-124.png)
 
 - 반복작업, 벽 생성
 
@@ -883,17 +883,17 @@ https://github.com/user-attachments/assets/85e158e2-e7bc-4922-9ede-eeb609d1b39a
 
 - 직교기준 Edge 선택 > Context Menu > Insert Edge Loop 클릭
 
-![alt text](image-124.png)
+![alt text](image-125.png)
 
 - 창문, 문 위치 Face 선택 > Move 선택, 창문/문 내려는 방향으로
 - Shift 누른 상태에서 이동
 
-![alt text](image-125.png)
+![alt text](image-126.png)
 
 - Context Menu > Delete Face 선택
 - 반대편 면에서도 Delete Face 선택
 
-![alt text](image-126.png)
+![alt text](image-127.png)
 
 #### 재질 적용
 
@@ -902,23 +902,23 @@ https://github.com/user-attachments/assets/85e158e2-e7bc-4922-9ede-eeb609d1b39a
 
 - Tools > ProBuilder > Editors > Material Editor 클릭
 
-![alt text](image-127.png)
+![alt text](image-128.png)
 
 #### Material 렌더링 문제
 
-![alt text](image-128.png)
+![alt text](image-129.png)
 
 - Window > Rendering > Render Pipeline Converter 선택
 - Scan
 
-![alt text](image-129.png)
+![alt text](image-130.png)
 
 - Convert Assets 버튼 클릭
 
+![alt text](image-132.png)
+
+
 ![alt text](image-131.png)
-
-
-![alt text](image-130.png)
 
 ---
 
@@ -952,7 +952,7 @@ https://github.com/user-attachments/assets/85e158e2-e7bc-4922-9ede-eeb609d1b39a
 - 기존 Scene을 다른이름으로 재저장
 - 계층창 오브젝트를 확인하면서 삭제
 
-![alt text](image-137.png)
+![alt text](image-138.png)
 
 #### Spline 애니메이션 기능
 
@@ -960,7 +960,7 @@ https://github.com/user-attachments/assets/85e158e2-e7bc-4922-9ede-eeb609d1b39a
 - 설치한 Splines 기능 사용
 - Hierarchy 창 > Create > Spline > 하위메뉴 선택
 
-![alt text](image-138.png)
+![alt text](image-139.png)
 
 - 움직일 오브젝트 선택 > Add Component > Spline Animate 추가
 - Spline 속성 > 적용한 Spline 지정
@@ -982,7 +982,7 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 
 - IoT Sample Project 애셋
 
-![alt text](image-139.png)
+![alt text](image-140.png)
 
 #### 전체 분석
 
@@ -1003,19 +1003,19 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
         - DateTimeGenerator.cs 스크립트 더블클릭
         - yyyy-MM-dd HH:mm:ss 포맷팅으로 변경
 
-    ![alt text](image-140.png)
+    ![alt text](image-141.png)
 
 2. ControlSystem - Canvas UI 왼쪽 버튼집합
     - Button - 캔버스 사용시 재일 중요
 
-    ![alt text](image-141.png)
+    ![alt text](image-142.png)
 
     - On Click() 이벤트 확인
     - AppStates.ToggleOccupancy()
         - AppLogic 빈 그룹오브젝트 연결
         - AppStates.cs가 컴포넌트로 연계
 
-    ![alt text](image-142.png)
+    ![alt text](image-143.png)
 
     - AppStates.cs 스크립트 분석/수정
 
@@ -1026,17 +1026,17 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
     - `32-126,44032-55203,12593-12643,8200-9900` 지정
     - Generate Font Atlas 클릭
 
-    ![alt text](image-143.png)
+    ![alt text](image-144.png)
 
     - 완료후 Save As... 리소스 폴더에 저장
 
     - OverlayMode TextMeshPro 컴포넌트에 폰트 지정
 
-    ![alt text](image-144.png)
+    ![alt text](image-145.png)
 
     - 실행
 
-    ![alt text](image-145.png)
+    ![alt text](image-147.png)
 
     - AppState에 적용된 폰트 변경 처리
 
@@ -1045,17 +1045,16 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 
 4. BrightonOffice 오브젝트
     - 3DMax, Blender 같은 3D 모델링 툴에서 작업 3D 사무실 모델
-    - Brighton_Floor_4 - 분석의미 없음 
-
+    - Brighton_Floor_4 - 분석의미 없음    
 5. BrightonOffice.Plane
     - NavMesh Surface
 
-   ![alt text](image-147.png) 
+   ![alt text](image-148.png) 
 
    - NPC나 로봇이 길을 찾기 위해 사용하는 이동가능한 바닥정보
    - 로봇청소기의 경우 프리팹에 길이 셋팅되어 있음. Prefabs > AI BOTS 클릭
 
-   ![alt text](image-148.png)
+   ![alt text](image-149.png)
 
    - NavMesh - 벽이나 장애물 피하고, 이동가능한 바닥만 따라다니게 미리 계산해놓은 객체
     - Agent Type - 어떤 캐릭터사 사용할지 결정
@@ -1064,11 +1063,11 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
     - Bake(굽기) 버튼 - 바닥분석 후, 이동가능한 영역 계산 후 새로운 NavMesh 생성
     - 중간에 바닥을 막는 오브젝트가 존재하면 NavMesh가 분리됨
 
-    ![alt text](image-149.png)
+    ![alt text](image-150.png)
 
     - 문 등의 오브젝트를 제거하고 Clear후 재 Bake 
 
-    ![alt text](image-150.png)
+    ![alt text](image-151.png)
 
 
 6. IoTDevices - 오피스에 위치하는 IoT 센서 장비들에 대한 설정
@@ -1077,7 +1076,7 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 
 8. AppLogic - Humanoid, Robot청소기 동작 처리용 오브젝트
 
-    ![alt text](image-151.png)
+    ![alt text](image-152.png)
 
     - AIAgent - Humanoid 오브젝트 PathWalker 스크립트 컴포넌트에 WayPoint 7개 이미지정
     - WayPoint 위치 변경하면, NavMash Surface를 자동으로 이동
@@ -1105,18 +1104,18 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 
 - Pandazole Home Interior 애셋으로 구성
 
-![alt text](image-152.png)
+![alt text](image-153.png)
 
 #### 한글폰트 설정
 
 <!-- 문서내 링크 -->
-[전체분석내](#전체-분석)
+[전체분석내 폰트설정](#전체-분석)
 
 #### NuGet 패키지 불러오기
 
 - Github 에서 [NuGetForUnity](https://github.com/GlitchEnzo/NuGetForUnity) 설치
 
-    ![alt text](image-153.png)
+    ![alt text](image-154.png)
 
 - MQTTnet 은 DLL을 직접 가져와서 구성. MQTTnet 버전 충돌
 - MQTT for Unity(M2Mqtt)를 사용
@@ -1125,68 +1124,68 @@ https://github.com/user-attachments/assets/8805de0b-a617-4fc5-939c-fb3e14c67de6
 
 - M2Mqtt를 유니티 스크립트로 재정의해서 Unity에서 사용할 수 있게 만든 버전
 - https://github.com/gpvigano/M2MqttUnity Code zip으로 다운로드
-- 압축해제 후
+- 압축해제 후 
 - Project 창 Assets에 M2MqttUnity 압축해제한 Assets 폴더 복사
 - Unity에서 컴파일 진행
 
-- 테스트
-
-![alt text](image-155.png)
-
-- MQTT Publish 메세지 확인
+- 테스트 
 
 ![alt text](image-156.png)
 
-#### Unity MQTT Subscribe 메세지 수신
-
-- Canvas UI와 TextMeshPro, Image 등으로 화면 구성
+- MQTT Publish 메시지 확인
 
 ![alt text](image-157.png)
 
-- SmartHomeMqttclient.cs 작성
+#### Unity MQTT Subscribe 메시지 수신
+
+- Canvas UI와 TextMeshPro, Image 등으로 화면 구성
+
+![alt text](image-158.png)
+
+- SmartHomeMqttClient.cs 작성
 - 빈 객체 생성 > MqttClient 명명
 - 위 스크립트 컴포넌트 지정
 - Inspector에서 필요 데이터 입력, Broker Address, User Name, Password
     - TOPIC, 상태표시 TextMesh Pro, JSON 데이터 출력 TextMesh Pro 지정
 
-![alt text](image-158.png)
+![alt text](image-159.png)
 
-- IoT Sample Project 애셋에서 CameraControoler.cs 가져오기
+- IoT Sample Project 애셋에서 CameraController.cs 가져오기
 
-- Essentials Pathway 애셋에서 SkyBOx 머티리얼 가져와서 적용
+- Essentials Pathway 애셋에서 SkyBox 머티리얼 가져와서 적용
 
 #### 전체 실행결과
 
-https://github.com/user-attachments/assets/7aa54186-2719-461e-a467-6113581c6296
+https://github.com/user-attachments/assets/611f0e5b-cb74-48d4-87b7-5a76254847d1
 
 ---
 
 ### 2.9. Unity Factory 컨버전
 
-- TODO : 
+- 결론 URP를 지원하는 HDRP 애셋 사용이나
+- URP 머티리얼을 새로 만드는 것을 권장
 - Unity Factory HDRP버전, URP 지원안함
 - URP 프로젝트 생성, Unity Factory 에셋 Import 
 
-![alt text](image-133.png)
+![alt text](image-134.png)
 
 - Package Manager > `Universal Render Pipeline' 검색 후 설치
 
-![alt text](image-134.png)
+![alt text](image-135.png)
 
 - URP Asset 생성
 - 프로젝트창 > Create > Rendering > URP Asset (with...) 선택
 
 - Edit > Project Settings > Graphics > Default Render Pipeline 값을 HDRP 종류에서 위에서 생성한 URP 에셋으로 변경
 
-![alt text](image-135.png)
+![alt text](image-136.png)
 
 - Edit > Project Settings > Quality > Render Pipelin Asset을 URD로 변경
 
-![alt text](image-136.png)
+![alt text](image-137.png)
 
 - 머티리얼 변환
 
 - Window > Rendering > Reder Pipeline Converter 선택
-
 
 [웹개발 학습](./README4.md)
