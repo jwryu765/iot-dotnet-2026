@@ -1,4 +1,5 @@
 # FastAPI Server 03
+import uvicorn
 from fastapi import FastAPI, HTTPException
 
 app = FastAPI()  # 객체 생성
@@ -58,3 +59,7 @@ def search_products(keyword: str, min_price: int=0):
             result.append(product)
 
     return result
+
+
+if __name__ == '__main__':
+    uvicorn.run('main03:app', reload=True, port=8080)
