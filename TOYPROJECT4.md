@@ -170,7 +170,7 @@ async def root():
 
 - 신뢰도 표시
 
-![alt text](image-308.png)
+![alt text](image-311.png)
 
 #### 결과이미지 타서버 요청및 인식결과 응답
 
@@ -181,8 +181,41 @@ async def root():
 
 ![alt text](image-310.png)
 
-### ASP.NET Core WebAPI
+### ASP.NET Core WebSite
+
+- 백엔드 RestAPI형태 + 프론트엔드 일반 HTML
+    - 프론트엔드 React, WPF 등 확장 가능
+
+- ASP.NET Core웹앱(MVC) 프로젝트 생성
+    - Model, Views 폴더 삭제
+    - wwwroot 아래 폴더 모두 삭제
+
+- Program.cs 수정
+
+- NetServiceController.cs 추가 - [소스](./toyproject/ToyProjects04/BackendCs/ResponseAiServer/Controllers/NetServiceController.cs)
+
+- index.html 작성 - [소스](./toyproject/ToyProjects04/BackendCs/ResponseAiServer/wwwroot/index.html)
+
+- 실행결과
+
+![alt text](image-312.png)
 
 ### 동영상, 웹캠 실시간 객체인식
+
+- MQTT(WebSocket) 사용해서 동영상 전달
+
+```powershell
+(venv) PS > pip install paho-mqtt
+```
+
+- 웹서비스 불필요 
+
+- 웹캠, 동영상 물체인식 - [소스](./toyproject/ToyProjects04/pythonAi/main06.py)
+
+![alt text](image-313.png)
+
+- MQTT 전송
+
+- ASP.NET 웹페이지 객체인식결과 스트리밍
 
 ### 비전검사

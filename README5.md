@@ -14,14 +14,13 @@
 
 - [GitHub 대문 ReadMe](./TOYPROJECT3.md)
 
-
 ### AI 비전 검사 시스템
 
 - [Python AI + WebAPI + MQTT/WS 연계](./TOYPORJECT4.md)
 
 ### 스마트팩토리 MES 미니 플랫폼
 
-- 컨베이어벨트 조별 + MQTT + Unity 연계
+- 컨베이어벨트 조별 + MQTT + (WPF) + Unity 연계
 
 ### IoT 스마트홈 통합 플랫폼
 
