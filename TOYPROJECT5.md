@@ -87,6 +87,8 @@ void loop() {
     - L298P 쉴드에 최소 9V 전원(최대 24V)인가
     - 2A 넘기지 말 것
 
+![alt text](image-329.png)
+
 ```cpp
 int motorSpeedPin = 10;
 int motorDirectionPin = 12;
@@ -128,7 +130,150 @@ void loop() {
     
 ![alt text](image-326.png)
 
+- 적외선 IR 송수신 센서
 
+![alt text](image-330.png)
+
+```cpp
+// 적외선 IR 센서
+int sensor = A0;
+int val
+
+void setup() {
+  Serial.begin(19200);
+  pinMode(sensor, INPUT);
+  Serial.println("Arduino start!")
+}
+
+void loop() {
+Val = digitalRead(sensor);
+  if (val == LOW) {
+    Serial.println("Detected");
+    delay(300);
+  } else {
+    Serial.println("0");
+    delay(300);
+  }
+
+}
+```
+
+![alt text](image-328.png)
+
+- 서보모터 SG-90
+  - 확장판 3연결, 시그널 D9 전달
+  - 각초 초기화 한 다음에 바를 연결
+
+![alt text](image-331.png)
+
+```cpp
+// 서보모터
+#include <Servo.h>
+#define SERVO_PIN 9  // Digital 9
+Servo servo;
+
+void setup() {
+  Serial.begin(19200);
+  servo.attach(SERVO_PIN);  // 서보모터 연결
+  servo.write(0);  // 0도로 초기화(!)
+  delay(500);
+}
+
+void loop() {
+  if (Serial.available()) {
+    int value = Serial.parseInt();
+    servo.write(value);
+    Serial.println(value);
+    delay(100);
+  }
+}
+```
+
+동영상 나중에
+
+- RGB LED 네오픽셀
+  - Adafruit NeoPoxel 라이브러리 설치
+
+![alt text](image-332.png)
+
+```cpp
+// NeoPixel LED 
+#include <Adafruit_NeoPixel.h>
+#define PIN 5
+#define NUMPIXELS 3
+
+Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+
+void setup() {
+  pixels.begin();
+  pixels.setBrightness(50);
+}
+
+void loop() {
+  for (int i=0; i < NUMPIXELS; i++) {
+    pixels.setPixelColor(i, pixels.Color(255, 0, 0));
+    pixels.show();
+  }
+  delay(1000);
+  for (int i=0; i < NUMPIXELS; i++) {
+    pixels.setPixelColor(i, pixels.Color(0, 255, 0));
+    pixels.show();
+    delay(10);
+  }
+  delay(1000);
+  for (int i=0; i < NUMPIXELS; i++) {
+    pixels.setPixelColor(i, pixels.Color(0, 0, 255));
+    pixels.show();
+    delay(10);
+  }
+  delay(1000);
+}
+```
+
+- 1초당 RGB 색상 변경 확인
+
+- 컬러센서(TCS347725) 모듈
+  - RGB 색상 감지
+  - Adafruit TCS34725
+
+![alt text](image-333.png)
+
+```cpp
+// Color Sensor
+#include <Wire.h>
+#include <Adafruit_TCS34725.h>
+
+Adafruit_TCS34725 TCS = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X);
+
+void setup() {
+  Serial.begin(19200);
+  TCS.begin();  
+}
+
+void loop() {
+  uint16_t clear, red, green, blue;
+  delay(100);
+  TCS.getRawData(&red, &green, &blue, &clear);
+
+  int r = map(red, 0, 21504, 0, 2000);
+  int g = map(green, 0, 21504, 0, 2000);
+  int b = map(blue, 0, 21504, 0, 2000);
+
+  Serial.print("    R: ");
+  Serial.print(r);
+  Serial.print("    G: ");
+  Serial.print(g);
+  Serial.print("    B: ");
+  Serial.println(b);
+}
+```
+![alt text](image-334.png)
+
+- 색상 테스트
+  - 초기상태 : RGB(4, 3, 3)
+  - 파란색 물체 : RGB(8, 11, 15)
+  - 녹색 물체 : RGB(14, 18, 10)
+  - 빨간색 물체 : RGB(21, 6, 6)
 
 ![alt text](image-327.png)
 
