@@ -130,6 +130,7 @@ void loop() {
     
 ![alt text](image-326.png)
 
+
 - 적외선 IR 송수신 센서
 
 ![alt text](image-330.png)
@@ -137,16 +138,16 @@ void loop() {
 ```cpp
 // 적외선 IR 센서
 int sensor = A0;
-int val
+int val;
 
 void setup() {
   Serial.begin(19200);
   pinMode(sensor, INPUT);
-  Serial.println("Arduino start!")
+  Serial.println("Arduino start!");
 }
 
 void loop() {
-Val = digitalRead(sensor);
+  val = digitalRead(sensor);
   if (val == LOW) {
     Serial.println("Detected");
     delay(300);
@@ -154,15 +155,14 @@ Val = digitalRead(sensor);
     Serial.println("0");
     delay(300);
   }
-
 }
 ```
 
 ![alt text](image-328.png)
 
-- 서보모터 SG-90
-  - 확장판 3연결, 시그널 D9 전달
-  - 각초 초기화 한 다음에 바를 연결
+- 서보모터 SG-90 
+    - 확장핀 3 연결, 시그널 D9 전달
+    - 각초 초기화 한 다음에 바를 연결
 
 ![alt text](image-331.png)
 
@@ -192,7 +192,7 @@ void loop() {
 동영상 나중에
 
 - RGB LED 네오픽셀
-  - Adafruit NeoPoxel 라이브러리 설치
+    - Adafruit NeoPixel 라이브러리 설치    
 
 ![alt text](image-332.png)
 
@@ -232,9 +232,9 @@ void loop() {
 
 - 1초당 RGB 색상 변경 확인
 
-- 컬러센서(TCS347725) 모듈
-  - RGB 색상 감지
-  - Adafruit TCS34725
+- 컬러센서(TCS34725) 모듈
+    - RGB 색상 감지
+    - Adafruit TCS34725 라이브러리 설치
 
 ![alt text](image-333.png)
 
@@ -270,12 +270,38 @@ void loop() {
 ![alt text](image-334.png)
 
 - 색상 테스트
-  - 초기상태 : RGB(4, 3, 3)
-  - 파란색 물체 : RGB(8, 11, 15)
-  - 녹색 물체 : RGB(14, 18, 10)
-  - 빨간색 물체 : RGB(21, 6, 6)
+    - 초기상태 : RGB(4,3,3)
+    - 파란색 물체 : RGB(8, 11, 15)
+    - 녹색 물체 : RGB(14, 18, 10)    
+    - 빨간색 물체 : RGB(21, 6, 6)
+
+
+#### 컨베이어벨트 조립
+
+- 조립중간 단계
+
+![alt text](image-335.png)
+
+- 완성 단계
 
 ![alt text](image-327.png)
+
+#### 통합로직 구현
+
+- [전체소스](./toyproject/ToyProjects05/arduino_part/sortingmachine/sortingmachine.ino)
+
+#### Arduino 교체 테스트
+
+- [Arduino UNO R3](https://www.devicemart.co.kr/goods/view?no=34404) 에서 [Arduino UNO R4](https://www.devicemart.co.kr/goods/view?no=15088648)로 교체 테스트
+- 결론 - `Adafruit` 등 라이브러리 UNO R4에서 사용불가
+
+#### IR 적외선 센서팁
+
+- 레일에 파란색, 검은색 전기테이프도 인식됨
+
+#### 기본 동작
+
+- 동영상 추후 업로드
 
 ### MQTT 통신 시스템
 
