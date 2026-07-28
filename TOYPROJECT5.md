@@ -301,9 +301,16 @@ void loop() {
 
 #### 기본 동작
 
-- 동영상 추후 업로드
+https://github.com/user-attachments/assets/f117f601-f956-414d-b6cc-8c420a34f4f7
 
-### MQTT 통신 시스템
+### 라즈베리파이 연결
+
+- 아두이노 + 라즈베리파이 5
+
+#### MQTT 통신 구현
+
+- Raspbian -> Windows MQTT 통신
+
 
 ### Unity 디지털트윈 시스템
 
