@@ -917,6 +917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SensorTrigger
   conveyor1: {fileID: 859798821}
   conveyor2: {fileID: 609897641}
+  spawner: {fileID: 998527477}
 --- !u!65 &1566795003
 BoxCollider:
   m_ObjectHideFlags: 0
