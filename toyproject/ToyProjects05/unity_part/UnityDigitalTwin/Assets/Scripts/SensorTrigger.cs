@@ -31,7 +31,7 @@ public class SensorTrigger : MonoBehaviour
     {
         isProcessing = true;
 
-        Debug.Log("제품 감지 - 컨베이어/스폰 중지");
+        //Debug.Log("제품 감지 - 컨베이어/스폰 중지");
 
         conveyor1.Stop();  // isRunning = false;
         conveyor2.Stop();
@@ -43,7 +43,7 @@ public class SensorTrigger : MonoBehaviour
         conveyor2.StartBelt();
         spawner.StartSpawner();
 
-        Debug.Log("컨베이어/스폰 재시작");
+        //Debug.Log("컨베이어/스폰 재시작");
 
         yield return new WaitForSeconds(1.0f); 
 
