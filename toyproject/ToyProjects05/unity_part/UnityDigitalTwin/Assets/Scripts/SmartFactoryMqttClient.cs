@@ -18,10 +18,17 @@ public class SmartFactoryMqttClient : M2MqttUnityClient
     [Header("Timestamp Text")]
     public TMP_Text txtTimestamp;
 
-    [Header("Data Text")]
+    [Header("ProductResult Text")]
     public TMP_Text txtData;
 
-    private ProductResult prdResult;
+    [Header("Box Spwaner")]
+    public BoxSpawner boxSpwaner;  // MQTT에서 확인하고 박스를 생성
+
+    [Header("Sensor Trigger")]
+    public SensorTrigger sensorTrigger;  // 센서확인 처리
+
+    // 감지결과 클래스
+    private ProductResult prdResult = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -73,6 +80,7 @@ public class SmartFactoryMqttClient : M2MqttUnityClient
         // base.DecodeMessage(topic, message);
 
         string msg = Encoding.UTF8.GetString(message);
+
         //Debug.Log(msg);
 
         prdResult = JsonConvert.DeserializeObject<ProductResult>(msg);
@@ -81,7 +89,36 @@ public class SmartFactoryMqttClient : M2MqttUnityClient
         txtDeviceId.text = prdResult.deviceId;
         Debug.Log(prdResult.timestamp);
         txtTimestamp.text = prdResult.timestamp;
+
         Debug.Log(prdResult.data);
-        txtData.text = prdResult.data;
+        var resultText = "";
+        switch (prdResult.data) {
+            case "R":
+                resultText = "Red Product";
+                break;
+            case "G":
+                resultText = "Green Product";
+                break;
+            case "B":
+                resultText = "Blue Product";
+                break;
+            case "D":
+                resultText = "Product detected";
+                break;
+            default:
+                resultText = "None";
+                break;
+        }
+        txtData.text = resultText;
+
+        if (prdResult.data == "D") {
+            boxSpwaner.Spawn();
+        } else if (prdResult.data == "R" ||
+                   prdResult.data == "G" ||
+                   prdResult.data == "B") {
+            // 색상별로 박스 색상변경 추가
+            sensorTrigger.SetColor(prdResult.data);
+            sensorTrigger.Resume();
+        }
     }
 }
