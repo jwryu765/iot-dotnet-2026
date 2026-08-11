@@ -47,3 +47,10 @@ Arduino IDE 나 Visual Studio Code - Platform IO 확장으로 사용등 여러�
 - Install
 - Python 설치되어 있지 않으면 병행 설치 됨
 - 새로 리로드 필요
+
+
+
+
+
+
+#### 
