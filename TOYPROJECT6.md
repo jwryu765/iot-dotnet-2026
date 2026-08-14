@@ -502,8 +502,7 @@ autostart 사용할 것
 
 ##### 실행결과
 
-
-
+https://github.com/user-attachments/assets/7355e6ae-7bf7-4ec2-9dc6-e370c1162def
 
 #### Unity에서 컨베이어벨트 비상정지 제어
 
