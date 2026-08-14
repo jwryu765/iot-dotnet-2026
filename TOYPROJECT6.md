@@ -476,15 +476,36 @@ autostart 사용할 것
 
 ![](assets/20260813_121446_image.png)
 
-
 ##### Python YOLO 소스와 MQTT 통신 소스 통합
 
+- data_interface.py 와 test.yolo,py 소스 통합
+- 물체 인식 동시에 MQRR로 데이터 Publish
+- total_interface.py
+
+![](assets/20260814_104649_image.png)
+
+- 물체인식 가능, MQTT 물체 Detect 이후 값 전달 안됨 -> 벨트 중지
+- 전달 위한 publish_yolo_data() 함수 작성
+
+![](assets/20260814_111215_image.png)
+
+- 1초에 수번 ~ 수십번 MQTT 배포를 하는 상황
 
 ##### Python 에서 Arduino로 시리얼통신 전송
 
+- 클래스 명에 따라 R, G, B로 시리얼
 
 ##### Arduino 수신된 값으로 서보모터 제어
 
+- 아두이노 소스에 processSerialCommand(char command), setProductColor(char color) 함수 추가
+- sortingmachine.ino
+
+##### 실행결과
+
+
+
+
+#### Unity에서 컨베이어벨트 비상정지 제어
 
 
 
