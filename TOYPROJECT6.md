@@ -520,9 +520,68 @@ serial_data = R
 
 ##### 실행결과
 
-https://github.com/user-attachments/assets/7355e6ae-7bf7-4ec2-9dc6-e370c1162def
+https://github.com/user-attachments/assets/ca63ff07-7a7c-4880-b2e5-ee8844b3c621
 
-#### Unity에서 컨베이어벨트 비상정지 제어
+- DC모터 속도 조절 필요
+
+#### 컨베이어벨트 비상정지 제어
+
+- 모든 데이터를 컨베이어벨트(아두이노)에서 생성, 라즈베리파이 전달, 윈도우 전송
+
+  - MQTT Publish 기능
+  - Aruduino(Serial) -> RPi(MQTT) -> Windows(MQTT) -> Unity or WPF(MQTT)
+- Unity나 WPF등 앱에서 컨베이어벨트를 제어하려면 MQTT Subscribe 기능 필요
+
+  - Unity or WPF(MQTT) -> Windows(MQTT) -> RPi(MQTT/Serial) -> Arduino(Serial)
+
+##### MQTT Subscribe 기능 확인
+
+- smartfactory/52/control 토픽으로 구독 중
+- MQTT Explorer에서 위 토픽으로 Publish
+
+![](assets/20260818_093106_image.png)
+
+- 아두이노 시리얼통신으로 전달 확인
+- 라즈베리파이로 전달할 JSON 포맷 `{ "deviceId" : "IOT52-RPI", "timestamp" : "YYYYMMDD HH:mm:ss", "control" : "start"/"stop" }`
+
+##### Unity에서 MQTT로 Publish, RPi에서 메시지 확인
+
+- Unity, 공정현황 Canvas > Panel에 Button 두 개(Stop, Restart) 추가
+
+![](assets/20260818_094733_image.png)
+
+- SmartFactroyMqttClient.cs에 public Stop(), Restart() 메서드 구현
+- 버튼 컴포넌트 내 On Click() 속성에서 객체 선택시, SmartFactoryMqttClient가 포함된 신의 `MqttClient 객체`를 선택
+
+![](assets/20260818_101817_image.png)
+
+- 해당하는 public 메서드를 선택
+
+![](assets/20260818_102109_image.png)
+
+![](assets/20260818_102145_image.png)
+
+- 로그 확인
+- 유니티 MQTT Publish로 RPi와 컨베이어벨트 시그널 확인
+
+##### 라즈베리파이 구독메시지 처리
+
+- 전체 json payload에서 control 키에 대한 값만 아두이노로 전달
+- 데이터 전달
+
+##### 아두이노 시리얼 메시지 처리
+
+- 시리얼통신으로 수신된 데이터(S, T)로 비상정지, 재가동 기능 추가
+
+![](assets/20260818_121427_image.png)
+
+##### 수정 소스
+
+- [RPi Python](./toyproject/ToyProjects06/raspberrypi_part/total_interface2.py)
+- [Arduino](./toyproject/ToyProjects06/arduino_part/sortingmachine2.ino)
+- [Unity](./toyproject/ToyProjects05/unity_part/UnityDigitalTwin/Assets/Scripts/SmartFactoryMqttClient.cs)
 
 
-TODO : 유니티에서 컨베이어벨트 제어
+#### 공정현황 DB 저장
+
+- 추후 진행 예정
