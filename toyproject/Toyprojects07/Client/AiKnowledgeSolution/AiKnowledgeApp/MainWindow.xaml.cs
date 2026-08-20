@@ -1,10 +1,9 @@
 ﻿using Microsoft.Win32;
-using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
-using System.Text.Json;
 using System.Windows;
+using System.Text.Json;
+using System.Net.Http;
+using System.IO;
 
 namespace AiKnowledgeApp {
     /// <summary>
@@ -74,19 +73,7 @@ namespace AiKnowledgeApp {
             using var fileStream = File.OpenRead(filePath);
             using var fileContent = new StreamContent(fileStream);
 
-            string fileName = Path.GetFileName(filePath);
-
-            fileContent.Headers.ContentType =
-                new MediaTypeHeaderValue("application/pdf");
-
-            fileContent.Headers.ContentDisposition =
-                new ContentDispositionHeaderValue("form-data") {
-                    Name = "\"file\"",
-                    FileName = "\"" + fileName + "\"",
-                    FileNameStar = fileName
-                };
-
-            content.Add(fileContent);
+            content.Add(fileContent, "file", Path.GetFileName(filePath));
 
             HttpResponseMessage response = await client.PostAsync("http://127.0.0.1:8000/upload", content);
 
