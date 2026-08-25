@@ -72,6 +72,7 @@ WPF 애플리케이션 프로젝트 생성. .NET 10.0 (LTS) 선택
   - 영문은 상관없음
 - 동일명의 파일이 올라가면 이전 파일 삭제, 새로 업로드
 
+
 #### 서버(Python) 구현
 
 ##### 필요 패키지 설치
@@ -484,8 +485,57 @@ def ask(request: QuestionRequest):
 
 #### 추가 작업
 
-- 질문 작업 엔터로 처리
-- 질문 진행동안 버튼 비활성화
 - 프로그레스바(서클) LLM 처리시간동안 진행상태 표시
-- WPF JSON 파싱
-- 예외처리(서버꺼짐, WPF앱 꺼짐)
+- 예외처리(서버꺼짐, WPF앱 꺼짐) ?
+- UI 스타일 변경 (MahApps. UI Framework 등...)
+
+### DevExpress 적용
+
+- 첫번째 : 확장 > DevExpress > Project Converter로 일괄변경
+- 두번째 : 일반적인 NuGet 패키지 관리자로 설치
+  - DevExpress.Wpf.Core 설치, 12개 종속성 패키지 통합 설치
+  - DevExpress.Wpf.Control 설치
+  - DevExpress.Wpf.Grid 설치
+- WPF 디자이너 도구상자 확인
+
+![](assets/20260825_111106_image.png)
+
+#### DevExpress 윈도우로 변경
+
+- 아래와 같이 Xaml 디자이너에서 윈도우 클래스 ThemedWindow로 변경
+
+```xml
+<dx:ThemedWindow  -- 클래스 확인
+        x:Class="AiKnowledgeApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"   -- 확인
+        xmlns:local="clr-namespace:AiKnowledgeApp"
+```
+
+- 코드비하인드 변경해서 오류 제거
+
+```cs
+using Microsoft.Win32  // 삭제
+
+if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
+...
+MessageBox.Show("질문을 입력하세요."); --> DXMessageBox.Show("질문을 입력하세요."); 
+```
+
+- App.xaml 코드비하인드의 부모클래스 Application을 변경
+
+```csharp
+public partial class App : System.Windows.Application {
+```
+
+- 주요 컨트롤
+
+  - dx(xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core") : SimpleButton, ...
+  - dxe(xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors") : TextEdit, ..
+- GridControl 사용시 주의점 : 상위 Grid RowDefinition이 Auto일 때 Height 속성이 필수!
+- 실행결과
+ 
+https://github.com/user-attachments/assets/e7a04533-71d9-45e7-8575-8ce750ce39a0
