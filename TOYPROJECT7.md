@@ -485,11 +485,29 @@ def ask(request: QuestionRequest):
 
 #### 추가 작업
 
-- 프로그레스바(서클) LLM 처리시간동안 진행상태 표시
-- 예외처리(서버꺼짐, WPF앱 꺼짐) ?
-- UI 스타일 변경 (MahApps. UI Framework 등...)
+- [X]  프로그레스바(서클) LLM 처리시간동안 진행상태 표시
+- [X]  예외처리(서버꺼짐, WPF앱 꺼짐) ?
+- [X]  UI 스타일 변경 (MahApps. UI Framework 등...)
+
+#### 문제점 - 추후 개선사항
+
+- `중복등록 방지`
+
+  - 같은 문서를 여러번 업로드 후 문맥 내용이 제대로 검색 안되는 현상
+  - Chunk와 Embedding을 ChromaDB에 중복 저장되기 때문
+  - 회사규칙.pdf 3번 업로드, 회사규칙.pdf, 회사규칙_1.pdf, 회사규칙_2.pdf ...
+  - 같은 회사규칙이 다른 filename, 다른 id로 여러개 저장. top_k 검색에서 밀려날 수
+  - RAG 품질에 저하
+  - 파일 내용을 `SHA-256 해시`로 검사 후 등록 방지
+- Embedding 성능 개선
+- Local LLM(Ollama)에서 속도 개선 방법
+- 이미지 변환된 PDF를 OCR로 텍스트 인식
 
 ### DevExpress 적용
+
+WPF 앱을 윈폼 앱 처럼 UI화면을 구성하기 위해서 사용하는 UI컴포넌트
+
+https://www.devexpress.com/ 에서 Trial 설치
 
 - 첫번째 : 확장 > DevExpress > Project Converter로 일괄변경
 - 두번째 : 일반적인 NuGet 패키지 관리자로 설치
@@ -536,6 +554,35 @@ public partial class App : System.Windows.Application {
   - dx(xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core") : SimpleButton, ...
   - dxe(xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors") : TextEdit, ..
 - GridControl 사용시 주의점 : 상위 Grid RowDefinition이 Auto일 때 Height 속성이 필수!
+- 실행화면
+
+![](assets/20260826_101205_image.png)
+
+
 - 실행결과
- 
+
 https://github.com/user-attachments/assets/e7a04533-71d9-45e7-8575-8ce750ce39a0
+
+#### 추가작업
+
+##### 검색 중 진행상태 표시
+
+- DevExpress ProgressBarEdit 사용
+
+```xml
+<dxe:ProgressBarEdit Grid.Row="0" x:Name="PrgAnswer"
+                     Height="20" Margin="5,0"
+                     Minimum="0" Maximum="100" 
+                     Visibility="Collapsed">
+    <dxe:ProgressBarEdit.StyleSettings>
+        <dxe:ProgressBarMarqueeStyleSettings />
+    </dxe:ProgressBarEdit.StyleSettings>
+</dxe:ProgressBarEdit>
+```
+
+- 실행결과
+
+
+
+https://github.com/user-attachments/assets/b65e6ab9-f1de-46fa-ad99-e43609793989
+
